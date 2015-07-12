@@ -12,7 +12,6 @@
 
 /**
  * The directory in which your application specific resources are located.
- *
  */
 $application = '../application';
 
@@ -58,18 +57,7 @@ define('SYSPATH', realpath($system).DIRECTORY_SEPARATOR);
 // Clean up the configuration vars
 unset($application, $modules, $system);
 
-
-
-
-
-
-
-
-// debug
-echo DOCROOT . '<br/>';
-echo APPPATH . '<br/>';
-echo SYSPATH . '<br/>';
-echo SYSPATH . "vendor/autoload.php" . '<br/>';
+// End of configuration
 
 
 
@@ -77,7 +65,21 @@ echo SYSPATH . "vendor/autoload.php" . '<br/>';
 require SYSPATH . "vendor/autoload.php";
 
 // Bootstrap the application
-// require APPPATH.'bootstrap'.EXT;
+require APPPATH.'bootstrap.php';
+
+
+
+
+
+///////// debug
+// echo DOCROOT . '<br/>';
+// echo APPPATH . '<br/>';
+// echo SYSPATH . '<br/>';
+// echo SYSPATH . "vendor/autoload.php" . '<br/>';
+///////// debug
+
+
+
 
 
 
