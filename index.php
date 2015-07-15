@@ -2,15 +2,12 @@
 /**
  *
  * This file is part of my_application.
- * Setting up the configuration vars like in kohanaphp
+ * index.php is responsible to set up application enviroment paths, composer autoloader, and call bootstrap
  *
  * @package my_application
  * @version    1.7
  * @license http://opensource.org/licenses/bsd-license.php BSD
  * @copyright  2015 Zsolt Sándor
- *
- * // index.php
- * is responsible to set up application enviroment paths, composer autoloader, and call bootstrap
  *
  */
 
