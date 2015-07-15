@@ -1,0 +1,6 @@
+{
+    "require": {
+        "aura/router": "^2.2",
+        "aura/autoload": "^2.0"
+    }
+}
