@@ -1,24 +1,28 @@
 <?php
 /**
- * 
- * This file is part of my_application. 
- * Setting up the configuration vars like in kohanaphp 
- * 
+ *
+ * This file is part of my_application.
+ * Setting up the configuration vars like in kohanaphp
+ *
  * @package my_application
- * 
+ * @version    1.7
  * @license http://opensource.org/licenses/bsd-license.php BSD
- * 
+ * @copyright  2015 Zsolt Sándor
+ *
+ * // index.php
+ * is responsible to set up application enviroment paths, composer autoloader, and call bootstrap
+ *
  */
 
 /**
- * The directory in which your application specific resources are located.
+ * Path to the application directory.
  */
-$application = '../application';
+$application = '../application/';
 
 /**
- * The directory in which the framework resources are located.
+ * Relative path to the framework core.
  */
-$system = '../auraphp';
+$system = '../system';
 
 /**
  * Set the PHP error reporting level. If you set this in php.ini, you remove this.
@@ -32,12 +36,7 @@ $system = '../auraphp';
  */
 error_reporting(E_ALL | E_STRICT);
 
-/**
- * End of standard configuration! Changing any of the code below should only be
- * attempted by those with a working knowledge of Kohana internals.
- *
- * @link http://kohanaframework.org/guide/using.configuration
- */
+
 
 // Set the full path to the docroot
 define('DOCROOT', realpath(dirname(__FILE__)).DIRECTORY_SEPARATOR);
@@ -62,28 +61,11 @@ unset($application, $modules, $system);
 
 
 // Kickstart the framework
-require SYSPATH . "vendor/autoload.php";
+require SYSPATH.'vendor/autoload.php';
 
 // Bootstrap the application
 require APPPATH.'bootstrap.php';
 
-
-
-
-
-///////// debug
-// echo DOCROOT . '<br/>';
-// echo APPPATH . '<br/>';
-// echo SYSPATH . '<br/>';
-// echo SYSPATH . "vendor/autoload.php" . '<br/>';
-///////// debug
-
-
-
-
-
-
-// execute requests
 
 
 // eof
