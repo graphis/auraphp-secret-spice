@@ -1,6 +1,7 @@
 {
     "require": {
         "aura/router": "^2.2",
-        "aura/autoload": "^2.0"
+        "aura/autoload": "^2.0",
+        "aura/view": "^2.1"
     }
 }
