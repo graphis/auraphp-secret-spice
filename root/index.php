@@ -2,7 +2,8 @@
 /**
  *
  * This file is part of my_application.
- * index.php is responsible to set up application enviroment paths, composer autoloader, and call bootstrap
+ * index.php is responsible to set up application enviroment paths,
+ * composer autoloader, and call bootstrap
  *
  * @package my_application
  * @version    1.7
@@ -12,7 +13,7 @@
  */
 
 /**
- * Path to the application directory.
+ * Relative path to the application directory.
  */
 $application = '../application/';
 
@@ -23,17 +24,11 @@ $system = '../system';
 
 /**
  * Set the PHP error reporting level. If you set this in php.ini, you remove this.
- * @link http://www.php.net/manual/errorfunc.configuration#ini.error-reporting
- *
  * Dev:			E_ALL | E_STRICT
  * Production:	E_ALL ^ E_NOTICE
  * PHP >= 5.3	E_ALL & ~E_DEPRECATED
- *
- * see further in hohanaphp index.php
  */
 error_reporting(E_ALL | E_STRICT);
-
-
 
 // Set the full path to the docroot
 define('DOCROOT', realpath(dirname(__FILE__)).DIRECTORY_SEPARATOR);
@@ -53,16 +48,14 @@ define('SYSPATH', realpath($system).DIRECTORY_SEPARATOR);
 // Clean up the configuration vars
 unset($application, $modules, $system);
 
-// End of configuration
-
 
 
 // Kickstart the framework
 require SYSPATH.'vendor/autoload.php';
 
 // Bootstrap the application
-require APPPATH.'bootstrap.php';
+require APPPATH.'bootstrap-for-micro.php';
 
 
 
-// eof
+// eof index.php
