@@ -49,12 +49,18 @@ define('SYSPATH', realpath($system).DIRECTORY_SEPARATOR);
 unset($application, $modules, $system);
 
 
+/**
+ * Define the start time of the application, used for profiling.
+ */
+// $time_start = microtime(true);
+
+
 
 // Kickstart the framework
 require SYSPATH.'vendor/autoload.php';
 
 // Bootstrap the application
-require APPPATH.'bootstrap-for-micro.php';
+require APPPATH.'bootstrap.php';
 
 
 
