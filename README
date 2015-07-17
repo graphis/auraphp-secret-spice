@@ -1,0 +1,13 @@
+how it works?
+
+
+index.php is setting up environment paths
+
+bootstrap.php is setting up application thingies and calls micro.php class
+
+	1. router.php - in application - define the routes here
+
+micro.php is responsible for checking routes and setting up views
+
+	2. setting up views here -- to do -- make a config file for views
+	
