@@ -52,6 +52,10 @@ unset($application, $modules, $system);
 /**
  * Define the start time of the application, used for profiling.
  */
+// if ( ! defined('KOHANA_START_TIME'))
+// {
+	define('APP_START_TIME', microtime(TRUE));
+// }
 // $time_start = microtime(true);
 
 

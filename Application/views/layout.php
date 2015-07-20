@@ -2,28 +2,36 @@
 <html>
 <head>
 	<meta charset=utf-8 />
-	<title>My Site</title>
+	<title>aura-secret-spice</title>
+
+	<!-- css reset -->
+	<link rel="stylesheet" type="text/css" href="resources/ui/css/normalize.css" />
+
+	<!-- site specific css -->
+	<link rel="stylesheet" type="text/css" href="resources/ui/css/main.css" />
+
+
+
+	<!-- global js -->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="path/to/your/jquery"><\/script>')</script>
+	</script>
+
+
+
+
 
 	<script src="pjaxtest/js/jquery-1.9.1.js"></script>
 	<script src="pjaxtest/js/jquery.cookie.js"></script>
 	<script src="pjaxtest/js/jquery.pjax.js"></script>
-	<script type="text/javascript">
-		var direction = "right";
-		$(document).ready(function(){
-			$(document).pjax('a', '#main');
-			$(document).on('pjax:start', function() {
-				$(this).addClass('loading')
-			});
-			$(document).on('pjax:end', function() {
-				$(this).removeClass('loading')
-			});
-		});
-	</script>
-	<style> 
+
+	<style>
+
 		#main {
-			background: #FFCFCF;
+			margin: 0 auto;
+			background: #FFF;
 			font-family:Helvetica,Arial,sans-serif;	
-			width:30%;  
+			width:50%;  
 			opacity: 1;
 			transition: opacity 0.20s linear;
 		}
@@ -35,21 +43,40 @@
 	</style> 
 	
 </head>
-
-
-
 <body>
 
-<h1>PJAX using PHP</h1>
-<nav class='header'>
-	<li><a href='trex' data-pjax='main'>Tyrannosaurus</a></li>
-	<li><a href='kong' data-pjax='main' >King Kong</a></li>
-</nav>
 
 
-	<section id="main">
-		<?php echo $this->getContent(); ?>
-	</section>
+<header id='header'>
+
+	<h1>auraphp pjax</h1>
+
+	<nav class='header'>
+
+		<ul id='main_navigation'>
+			<li><a href='/'>1</a></li>
+			<li><a href='/'>2</a></li>
+			<li><a href='/'>3</a></li>
+		</ul>
+	</nav>
+
+</header>
+
+
+
+
+
+
+		<li><a href='trex' data-pjax='main'>Tyrannosaurus</a></li>
+		<li><a href='kong' data-pjax='main' >King Kong</a></li>
+
+
+
+<!-- main -->
+<section id="main">
+<?php echo $this->getContent(); ?>
+</section>
+<!-- / main -->
 
 
 
@@ -58,13 +85,44 @@
 
 
 
+
+
+
+<footer>
+<!-- profile -->
 <?php
 // profile
-//$time_end = microtime(true);
-//$time = $time_end - $time_start;
-//echo "<br/><br/><br/>Page rendered in $time seconds<br/>";
-
-
+$time_end = microtime(true);
+$time = $time_end - APP_START_TIME;
+echo "<br/><br/><br/>Page rendered in $time seconds<br/>";
 ?>
+
+<p>Posted by: Hege Refsnes</p>
+<p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
+</footer>
+
+
+
+<script type="text/javascript">
+
+var direction = "right";
+
+function autorun()
+{
+$(document).pjax('a', '#main');
+$(document).on('pjax:start', function() {
+	$(this).addClass('loading')
+});
+$(document).on('pjax:end', function() {
+	$(this).removeClass('loading')
+});
+}
+if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
+else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
+else window.onload = autorun;
+</script>
+
+
+
 </body>
 </html>

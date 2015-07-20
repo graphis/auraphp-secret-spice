@@ -1,0 +1,47 @@
+/*! main */
+
+/**
+ * skeleton
+ */
+
+body {
+	background: #eeeeee;
+}
+
+
+/**
+ * header
+ */
+
+
+
+
+
+
+
+
+
+
+/**
+ * nav
+ */
+
+ul#main_navigation {
+	text-align: center;
+}
+
+ul#main_navigation li {
+	display: inline;
+}
+
+
+
+ul#main_navigation a {
+	width: 200px;
+	height: 100px;
+	background: #cfcfcf;
+}
+
+ul#main_navigation a:hover {
+    transition: .3s background-color;
+}
