@@ -12,18 +12,28 @@
 
 
 
-	<!-- global js -->
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="path/to/your/jquery"><\/script>')</script>
+	<!-- global js
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="path/to/your/jquery"><\/script>')</script> -->
 	</script>
 
+	<!-- IE 8 or below -->   
+	<!--[if lt IE 9]>
+		<script src="resources/ui/js/jquery-1.11.3.min.js"></script>  
+	<![endif]-->
+	<!-- IE 9 or above -->
+	<!-- [if gte IE 9] >
+		<script src="resources/ui/js/jquery-2.1.4.min.js"></script>  
+	<! [endif] -->
 
 
-
-
+	<script src="resources/ui/js/jquery/jquery-2.1.4.min.js"></script>
 	<script src="pjaxtest/js/jquery-1.9.1.js"></script>
 	<script src="pjaxtest/js/jquery.cookie.js"></script>
-	<script src="pjaxtest/js/jquery.pjax.js"></script>
+
+		<script src="resources/ui/js/pjax/jquery.pjax.js"></script>
+
+	<!--<script src="pjaxtest/js/jquery.pjax.js"></script>-->
 
 	<style>
 
