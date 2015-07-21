@@ -31,7 +31,7 @@
 	<script src="pjaxtest/js/jquery-1.9.1.js"></script>
 	<script src="pjaxtest/js/jquery.cookie.js"></script>
 
-		<script src="resources/ui/js/pjax/jquery.pjax.js"></script>
+	<script src="resources/ui/js/pjax/jquery.pjax.js"></script>
 
 	<!--<script src="pjaxtest/js/jquery.pjax.js"></script>-->
 
@@ -57,6 +57,10 @@
 
 
 
+<div id='page'>
+
+
+
 <header id='header'>
 
 	<h1>auraphp pjax</h1>
@@ -64,9 +68,9 @@
 	<nav class='header'>
 
 		<ul id='main_navigation'>
-			<li><a href='/'>1</a></li>
-			<li><a href='/'>2</a></li>
-			<li><a href='/'>3</a></li>
+			<li><a href='/work'>work</a></li>
+			<li><a href='/play'>play</a></li>
+			<li><a href='/sleep'>sleep</a></li>
 		</ul>
 	</nav>
 
@@ -131,6 +135,10 @@ if (document.addEventListener) document.addEventListener("DOMContentLoaded", aut
 else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
 else window.onload = autorun;
 </script>
+
+
+
+</div>
 
 
 

@@ -5,21 +5,25 @@
  */
 
 body {
-	background: #eeeeee;
+	background: #ebebeb;
 }
 
 
 /**
- * header
+ * page
  */
+#page {
+	width: 900px;
+	margin: 0 auto;
+	background: #fff;
+}
 
 
 
-
-
-
-
-
+#header {
+	width: 900px;
+	background: #fff;
+}
 
 
 /**
@@ -45,3 +49,19 @@ ul#main_navigation a {
 ul#main_navigation a:hover {
     transition: .3s background-color;
 }
+
+
+
+
+
+
+
+
+section#main {
+	width: 900px;
+	background: #3e274b;
+}
+
+
+
+
