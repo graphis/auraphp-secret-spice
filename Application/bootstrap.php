@@ -32,12 +32,6 @@ $app->run();
 
 
 
-///////// debug
-// echo DOCROOT . '<br/><br/><hr/>';
-// echo APPPATH . '<br/>';
-// echo SYSPATH . '<br/>';
-// echo SYSPATH . "vendor/autoload.php" . '<br/>';
-///////// debug
 
 
 
