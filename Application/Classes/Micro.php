@@ -133,7 +133,7 @@ class Micro
 	 */
 	public function before()
 	{
-		echo '_____________________________' . __LINE__ . '<br/>';
+		// echo '_____________________________' . __LINE__ . '<br/>';
 
 		$test = new \Application\Helper\Arr;
 
@@ -143,10 +143,7 @@ class Micro
 
 //		$this->debug($zorro);
 		$value = Arr::path($zorro, 'views.partials.layout');
-
-		
-
-		$this->debug($value);
+//		$this->debug($value);
 
 	}
 
