@@ -30,6 +30,7 @@ use Application\Helper\Console;
 
 //
 use Underscore\Underscore;
+use Underscore\Collection;
 
 
 
@@ -210,9 +211,11 @@ class Micro
 					$range = Underscore::range(9, 27, 2)->toArray();
 					$console->debug($range);
 
-			        $count = Underscore::from($this->getDummy())->count();
-					$console->debug($count);
 
+
+
+	
+					
 
 
 			        $value = Underscore::from($this->getDummy())->value();
