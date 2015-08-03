@@ -1,7 +1,8 @@
 {
-    "require": {
-        "aura/router": "^2.2",
-        "aura/autoload": "^2.0",
-        "aura/view": "^2.1"
-    }
+	"require": {
+		"aura/router": "^2.2",
+		"aura/autoload": "^2.0",
+		"aura/view": "^2.1",
+		"im0rtality/underscore": "dev-master"
+	}
 }

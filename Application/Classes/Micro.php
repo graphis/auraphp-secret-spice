@@ -28,6 +28,10 @@ use Application\Helper\Console;
 
 
 
+//
+use Underscore\Underscore;
+
+
 
 /**
  *
@@ -171,11 +175,117 @@ class Micro
 		$console->debug('$xml->data');
 
 
+	//	$underscore = new Underscore();
+
+
+		$underscore = Underscore::from([1,2,3,4,5])
+		            // convert array format
+		        ->map(function($num) { return ['number' => $num];})
+		            // filter out odd elements
+		        ->filter(function($item) { return ($item['number'] % 2) == 0;})
+		            // vardump elements
+		        ->invoke(function($item) { var_dump($item);})
+		            // changed my mind, I only want numbers
+		        ->pick('number')
+		            // add numbers to 1000
+		        ->reduce(
+					function($sum, $num){
+						$sum += $num;
+						return $sum;
+					},
+					1000)
+		            // take result
+		        ->value();
+		            // 1006
+
+
+
+
+
+					$underscore = Underscore::from([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31])->value();
+					$console->debug($underscore);
+
+//					$underscore = Underscore::from([1,2,3,4,5])->pick('number')->value();
+
+					$range = Underscore::range(9, 27, 2)->toArray();
+					$console->debug($range);
+
+			        $count = Underscore::from($this->getDummy())->count();
+					$console->debug($count);
+
+
+
+			        $value = Underscore::from($this->getDummy())->value();
+					$console->debug($value);
+
+
+					///////////////////////
+
+//			        $buffer = '';
+//			       $zzz = Underscore::from($this->getDummy())
+//			            ->invoke(
+//			                function ($value, $key) use (&$buffer) {
+//			                    $buffer .= sprintf('%s:%s|', $key, $value);
+//			                }
+//			            );
+//			        $this->assertSame('name:dummy|foo:bar|baz:qux|', $buffer);
+//					$console->debug($zzz);
+
+
+
+
+			        $value = Underscore::from($this->getDummy())
+			            ->map(
+			                function ($value, $key) use (&$buffer) {
+			                    return sprintf('%s:%s', $key, $value);
+			                }
+			            )->toArray();
+			     //   $this->assertSame(
+			     //       array('name' => 'name:dummy', 'foo' => 'foo:bar', 'baz' => 'baz:qux'),
+			      //      $value
+			     //   );
+					$console->debug($value);
+
+$console->debug('____________________');
+
+					// testpick
+			        $value = Underscore::from(array(  $this->getDummy() ))
+			            ->pick('foo')
+			            ->toArray();
+			     //   $this->assertSame(array('bar', 'bar', 'bar'), $value);
+					
+					$console->debug($value);
+					
 
 		echo '_____________________________' . __FUNCTION__ . '<br/>';
 	}
 
 
+	//////// underscore functions
+    /**
+     * @inheritDoc
+     */
+    protected function getDummy()
+    {
+        $dummy = array(
+            'name' => 'dummy',
+            'foo'  => 'bar',
+            'baz'  => 'qux',
+        );
+        return $dummy;
+    }
+    protected function getDummy2()
+    {
+        $dummy = array(
+            'name' => 'dummy',
+            'foo'  => 'bar',
+            'baz'  => 'qux',
+        );
+        return $dummy;
+    }
+	
+	
+	
 
 
 	/**
