@@ -113,6 +113,14 @@ echo "<br/><br/><br/>Page rendered in $time seconds<br/>";
 
 <p>Posted by: Hege Refsnes</p>
 <p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
+
+<p>
+	Ámor Intercity indul az egyes vágyányról. <br/>
+	A szemétkocsik ajtaját kérjük csukják be!<br/>
+</p>
+
+
+
 </footer>
 
 
