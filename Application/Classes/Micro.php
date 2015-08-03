@@ -24,6 +24,8 @@ use Aura\View\View;
 
 // application thingies
 use Application\Helper\Arr;
+use Application\Helper\Console;
+
 
 
 
@@ -164,7 +166,13 @@ class Micro
 	 */
 	public function finish()
 	{
-		// echo '_____________________________' . __FUNCTION__ . '<br/>';
+		echo '_____________________________' . __FUNCTION__ . '<br/>';
+		$console = new Console;
+		$console->debug('$xml->data');
+
+
+
+		echo '_____________________________' . __FUNCTION__ . '<br/>';
 	}
 
 
@@ -334,7 +342,10 @@ class Micro
 		/////////////////// view
 	
 		$this->render_view($staticpage);
-		//$this->finish();
+
+
+		// finish
+		$this->finish();
 
 	}
 }
