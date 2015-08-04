@@ -289,25 +289,20 @@ $console->debug('____________________');
 	
 	
 	
-
-
 	/**
-	 * Add callback for when routing dispatching is finsihed
-	 * @param Closure $callback Closure Callback to be executed
-	 * @return void
+	 * setting up views and registering them
 	 */
-	public function render_view($static)
+	public function setup_views($static)
 	{
-		// echo '_____________________________' . __FUNCTION__ . '<br/>';
-
+	
 		/////////////////// view
 		// initiate views
 		$view_factory = new \Aura\View\ViewFactory;
-		$view = $view_factory->newInstance();
+		$this->view = $view_factory->newInstance();
 
 		// the "main" template
-		$layout_registry = $view->getLayoutRegistry();
-		$view_registry = $view->getViewRegistry();
+		$layout_registry = $this->view->getLayoutRegistry();
+		$view_registry = $this->view->getViewRegistry();
 
 		// config file
 		$views = include APPPATH . 'configuration/views.php';
@@ -332,18 +327,32 @@ $console->debug('____________________');
 			}
 		}
 		// OK
+		
+	}
 
 
+
+
+	/**
+	 * Add callback for when routing dispatching is finsihed
+	 * @param Closure $callback Closure Callback to be executed
+	 * @return void
+	 */
+	public function render_view($static)
+	{
+		// echo '_____________________________' . __FUNCTION__ . '<br/>';
+
+		$this->setup_views();
 
 		// set data
-		$view->setData(array('name' => 'Aura -- data from micro.php'));
+		$this->view->setData(array('name' => 'Aura -- data from micro.php'));
 
 		// echo $this->staticpage;
 		// if request is ajax -- pjax
 		if ( $this->is_pjax() )
 		{
 //			$this->debug('pjax true');
-			$view->setView( $static );
+			$this->view->setView( $static );
 //			if (isset ($static)) {
 //				$view->setView( $static );
 //			} else {
@@ -356,13 +365,19 @@ $console->debug('____________________');
 //			} else {
 //				$view->setView( 'browse' );
 //			}
-			$view->setView( $static );
-			$view->setLayout( 'layout' );
+			$this->view->setView( $static );
+			$this->view->setLayout( 'layout' );
 		}
 
 		//
-		echo $view->__invoke();
+		echo $this->view->__invoke();
 	}
+
+
+
+
+
+
 
 
 
