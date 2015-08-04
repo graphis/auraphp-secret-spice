@@ -311,9 +311,9 @@ $console->debug('____________________');
 
 		// the "sub" template		
 		$view_registry = $view->getViewRegistry();
-		$view_registry->set('browse', APPPATH . 'views/_browse.php');
-		$view_registry->set('trex',  APPPATH . 'views/_trex.php');
-		$view_registry->set('kong',  APPPATH . 'views/_kong.php');
+		$view_registry->set('index',  APPPATH . 'views/_index.php');
+		$view_registry->set('974',    APPPATH . 'views/_974.php');
+		$view_registry->set('zsele',  APPPATH . 'views/_zsele.php');
 
 		// set data
 		$view->setData(array('name' => 'Aura -- data from micro.php'));
@@ -428,7 +428,7 @@ $console->debug('____________________');
 
 				} else {
 					// use a default action class
-					$staticpage = 'browse';
+					$staticpage = 'index';
 				}
 
 //				$this->debug($params);

@@ -1,7 +1,8 @@
 <div>Hello <?php echo $this->name; ?></div>
 
 <div>
-partial
+trex
+<img src='images/02.jpg' />
 <?php
 
 /*

@@ -81,8 +81,9 @@
 
 
 
-		<li><a href='trex' data-pjax='main'>Tyrannosaurus</a></li>
-		<li><a href='kong' data-pjax='main' >King Kong</a></li>
+		<li><a href='974'   data-pjax='main' >974</a></li>
+		<li><a href='zsele' data-pjax='main' >zsele</a></li>
+		<li><a href='/' data-pjax='main' >index</a></li>
 
 
 
@@ -111,7 +112,6 @@ $time = $time_end - APP_START_TIME;
 echo "<br/><br/><br/>Page rendered in $time seconds<br/>";
 ?>
 
-<p>Posted by: Hege Refsnes</p>
 <p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
 
 <p>

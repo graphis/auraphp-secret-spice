@@ -2,7 +2,7 @@
 
 <div>
 trex
-<img src='pjaxtest/images/Kong1.jpg' />
+<img src='images/01.jpg' />
 <?php
 
 /*

@@ -40,7 +40,7 @@ $this->router->add('page', '{pages}')
  // pjax testing
 $this->router->add('pjax', '{pjaxpages}')
  	->addTokens(array(
- 		'pjaxpages' => '/kong|/trex|/zorro', //   work OR play OR dream
+ 		'pjaxpages' => '/zsele|/974|/zorro', //   work OR play OR dream
  	));
 
 

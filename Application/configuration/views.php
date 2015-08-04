@@ -10,9 +10,9 @@ return [
         'path' => 'views',				// in application / views /
 	        'partials' => [
 				'layout' => 'layout.php',
-            	'browse' => '_browse.php',
-				'kong'   => '_kong.php',
-				'trex'   => '_trex.php'
+            	'index'  => '_index.php',
+				'974'    => '_974.php',
+				'zsele'  => '_zsele.php'
         ]
     ]
 ];
