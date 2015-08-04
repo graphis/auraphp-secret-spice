@@ -292,7 +292,7 @@ $console->debug('____________________');
 	/**
 	 * setting up views and registering them
 	 */
-	public function setup_views($static)
+	public function setup_views()
 	{
 	
 		/////////////////// view
