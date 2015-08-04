@@ -26,6 +26,7 @@ use Aura\View\View;
 use Application\Helper\Arr;
 use Application\Helper\Console;
 
+// use Application\DB\Jig;
 
 
 //
@@ -172,6 +173,23 @@ class Micro
 	public function finish()
 	{
 		echo '_____________________________' . __FUNCTION__ . '<br/>';
+		
+
+//		$db = new DB\Jig ( '../db' );
+
+		$mapper = new DB\Jig\Mapper('mydb', 'dbfile');
+		$mapper->username = 'userA';
+		$mapper->password = '57d82jg05';
+		$mapper->save();
+		$mapper->reset();
+		$mapper->username = 'userB';
+		$mapper->password = 'kbjd94973';
+		$mapper->save();
+
+
+
+
+
 		$console = new Console;
 		$console->debug('$xml->data');
 
