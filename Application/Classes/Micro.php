@@ -330,8 +330,8 @@ $console->debug('____________________');
 		{
 			// 00
 			// vars
-			$folder = Arr::path($views, 'views.path');
-			$layout = Arr::path($views, 'views.layout');
+			$folder   = Arr::path($views, 'views.path');
+			$layout   = Arr::path($views, 'views.layout');
 			$partials = Arr::path($views, 'views.partials');
 
 			// 01 
