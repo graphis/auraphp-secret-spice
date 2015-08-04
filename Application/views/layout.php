@@ -28,9 +28,7 @@
 
 
 	<script src="resources/ui/js/jquery/jquery-2.1.4.min.js"></script>
-	<script src="pjaxtest/js/jquery-1.9.1.js"></script>
-	<script src="pjaxtest/js/jquery.cookie.js"></script>
-
+	<script src="resources/ui/js/pjax/jquery.cookie.js"></script>
 	<script src="resources/ui/js/pjax/jquery.pjax.js"></script>
 
 	<!--<script src="pjaxtest/js/jquery.pjax.js"></script>-->
