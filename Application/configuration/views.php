@@ -8,12 +8,14 @@
 return [
     'views' => [
         'path' => 'views',				// in application / views /
+
+		'layout' => 'layout.php',
 	        'partials' => [
-				'layout' => 'layout.php',
             	'index'  => '_index.php',
 				'974'    => '_974.php',
 				'zsele'  => '_zsele.php'
         ]
+
     ]
 ];
 
