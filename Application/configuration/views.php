@@ -7,10 +7,12 @@
 // views
 return [
     'views' => [
-        'path' => 'views',				// in application / views /
 
-		'layout' => 'layout.php',
-	        'partials' => [
+        'path' => 'views',					// in application / views /
+
+		'layout' => 'layout.php',			// main layout file
+
+	        'partials' => [					// partial views
             	'index'  => '_index.php',
 				'974'    => '_974.php',
 				'zsele'  => '_zsele.php'
