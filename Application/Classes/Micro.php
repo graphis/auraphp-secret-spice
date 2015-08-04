@@ -307,13 +307,33 @@ $console->debug('____________________');
 
 		// the "main" template
 		$layout_registry = $view->getLayoutRegistry();
-		$layout_registry->set('layout', APPPATH . 'views/layout.php');
-
-		// the "sub" template		
 		$view_registry = $view->getViewRegistry();
-		$view_registry->set('index',  APPPATH . 'views/_index.php');
-		$view_registry->set('974',    APPPATH . 'views/_974.php');
-		$view_registry->set('zsele',  APPPATH . 'views/_zsele.php');
+
+		// config file
+		$views = include APPPATH . 'configuration/views.php';
+
+		if (is_array($views))
+		{
+			// 00
+			// vars
+			$folder = Arr::path($views, 'views.path');
+			$layout = Arr::path($views, 'views.layout');
+			$partials = Arr::path($views, 'views.partials');
+
+			// 01 
+			// main template
+			$layout_registry->set('layout', APPPATH . $folder . DIRECTORY_SEPARATOR . $layout);
+
+			// 02
+			// sub templates
+			foreach ($partials as $key => $value)
+		    {
+				$view_registry->set( $key,  APPPATH . $folder . DIRECTORY_SEPARATOR . $value );
+			}
+		}
+		// OK
+
+
 
 		// set data
 		$view->setData(array('name' => 'Aura -- data from micro.php'));
