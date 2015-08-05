@@ -24,6 +24,14 @@ use Application\Helper\Debug;
 
 
 
+define('LAZER_DATA_PATH', realpath(dirname(__FILE__)).'/data/'); //Path to folder with tables
+
+use Lazer\Classes\Database as Lazer; // example
+
+
+
+
+
 /**
  *
  * @package Aura.Micro
@@ -147,6 +155,60 @@ class Micro
 		$debug = new Debug();
 		$debug->console('hi from the debug class to console');
 		$debug->page('hi from the debug class to page');
+		
+	//	Lazer::create('table_name', array(
+	//	    'id' => 'integer',
+	//	    'nickname' => 'string'
+	//	));
+		
+//	$row = Lazer::table('table_name');
+
+//	$row->nickname = 'new_user';
+//	$row->save();
+
+//	$row->nickname = 'zzz';
+//	$row->save();
+
+//	$row->nickname = 'mikka';
+//	$row->save();
+	
+	
+//	foreach($table as $row)
+//	{
+//	    print_r($row);
+//	}
+
+
+
+
+//		try{
+//		    \Lazer\Classes\Helpers\Validate::table('table_name')->exists();
+//			echo '__ exists';
+
+			$table = Lazer::table('table_name')->findAll();
+			foreach($table as $row)
+			{
+				echo '<pre>';
+			    print_r($row);
+			    print_r($row->id . '<br/>');
+			    print_r($row->nickname . '<br/>');
+				echo '</pre>';
+
+				// $debug->page('xxxxxxxx ' . $row);
+				
+			}
+
+//		} catch(\Lazer\Classes\LazerException $e){
+		    //Database doesn't exist
+//			echo '__ Database doesnt exist';
+//		}
+
+
+
+
+
+		
+
 
 		// $db = new DB\Jig ( '../db' );
 
