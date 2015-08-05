@@ -156,12 +156,14 @@ class Micro
 		$debug->console('hi from the debug class to console');
 		$debug->page('hi from the debug class to page');
 		
-	//	Lazer::create('table_name', array(
-	//	    'id' => 'integer',
-	//	    'nickname' => 'string'
-	//	));
+//	Lazer::create('pages', array(
+//		    'id'    => 'integer',
+//		    'slug'  => 'string',
+//		    'title' => 'string',
+//		    'body'  => 'string',
+//		));
 		
-//	$row = Lazer::table('table_name');
+	$row = Lazer::table('table_name');
 
 //	$row->nickname = 'new_user';
 //	$row->save();
@@ -178,8 +180,18 @@ class Micro
 //	    print_r($row);
 //	}
 
+	$row2 = Lazer::table('pages');
+//	$row2->slug = 'aha';
+//	$row2->title = 'title: aha';
+//	$row2->body = 'body: aha';
+//	$row2->save();
 
 
+	$row = Lazer::table('pages')->where('slug', '=', 'zorro')->find();
+
+	echo $row->id;
+	
+	
 
 //		try{
 //		    \Lazer\Classes\Helpers\Validate::table('table_name')->exists();
