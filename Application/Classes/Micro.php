@@ -211,30 +211,49 @@ class Micro
 */
 
 
-
+echo '<pre>';
 		// read
 		// http://microdb.morrisbrodersen.de/#Database
 	
 		$db = new \MicroDB\Database(APPPATH . 'database/pages'); // data directory
 
-		$post = $db->load();
+		$id = 1;
+		$post = $db->load($id);
 
-		echo $staticpage;
+		 $this->staticpage = $staticpage;
+//		echo $staticpage;
 		
 	  //  echo "what______(";
 	//	echo var_dump($staticpage[0]);
-		echo "is_string(";
-	    var_export($staticpage);
-	    echo ") = ";
-	    echo var_dump(is_string($value));
+//		echo " is_string(";
+//	    var_export($staticpage);
+//	    echo ") = ";
+//	    echo var_dump(is_string($staticpage));
 		
+
+	
+	
 		
 		// select record based on id
 		$posts = $db->find(function($post) {
-			return in_array( $staticpage[0] , @$post );
+			
+			
+	//		if (!is_object($post)) {
+	//		        echo '111111';
+	//		    }
+	//			else if() {
+	//				 echo '22222';
+	//			}
+
+			  //  return $obj->students;
+				
+				
+		//	echo var_dump($post);
+			return in_array( (string)$this->staticpage, (array)$post );
 		});
 
-		echo '<pre>';
+		
+		
 		foreach($posts as $id => $post) {
 		    print_r($post);
 		}
