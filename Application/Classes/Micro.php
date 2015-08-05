@@ -26,7 +26,7 @@ use Aura\View\View;
 use Application\Helper\Arr;
 use Application\Helper\Console;
 
-// use Application\DB\Jig;
+use Application\DB\Jig\Mapper;
 
 
 //
@@ -175,7 +175,8 @@ class Micro
 		echo '_____________________________' . __FUNCTION__ . '<br/>';
 		
 
-//		$db = new DB\Jig ( '../db' );
+		// $db = new DB\Jig ( '../db' );
+
 
 		$mapper = new DB\Jig\Mapper('mydb', 'dbfile');
 		$mapper->username = 'userA';

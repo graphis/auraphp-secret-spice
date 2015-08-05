@@ -20,12 +20,12 @@
 
 */
 
-namespace DB\Jig;
+namespace Application\DB\Jig;
 
 
 
 //! Flat-file DB mapper
-class Mapper extends Cursor {
+class Mapper extends \Application\DB\Cursor {
 
 	protected
 		//! Flat-file DB wrapper

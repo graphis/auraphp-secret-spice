@@ -20,7 +20,7 @@
 
 */
 
-namespace DB;
+namespace Application\DB;
 
 //! In-memory/flat-file DB wrapper
 class Jig {

@@ -20,10 +20,10 @@
 
 */
 
-namespace DB;
+namespace Application\DB;
 
 //! Simple cursor implementation
-abstract class Cursor extends \Magic implements \IteratorAggregate {
+abstract class Cursor extends \Application\DB\Magic implements \IteratorAggregate {
 
 	//@{ Error messages
 	const
