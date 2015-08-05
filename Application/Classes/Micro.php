@@ -224,7 +224,7 @@ class Micro
 
 	//	$underscore = new Underscore();
 
-
+	// underscore stuff
 		$underscore = Underscore::from([1,2,3,4,5])
 		            // convert array format
 		        ->map(function($num) { return ['number' => $num];})
