@@ -26,7 +26,7 @@ use Aura\View\View;
 use Application\Helper\Arr;
 use Application\Helper\Console;
 
-use Application\DB\Jig\Mapper;
+// use Application\DB\Jig\Mapper;
 
 
 //
@@ -178,6 +178,33 @@ class Micro
 		// $db = new DB\Jig ( '../db' );
 
 
+		// http://microdb.morrisbrodersen.de/#Database
+
+		$db = new \MicroDB\Database(APPPATH . 'database/pages'); // data directory
+
+		$post = $db->load();
+
+		// select record based on id
+		$posts = $db->find(function($post) {
+			return in_array(12, @$post );
+		});
+
+		echo '<pre>';
+		foreach($posts as $id => $post) {
+		    print_r($post);
+		}
+		echo '</pre>';
+
+
+
+		// create an item
+		
+		// delete an item
+		// $db->delete($id);
+		
+		
+		
+		/*
 		$mapper = new DB\Jig\Mapper('mydb', 'dbfile');
 		$mapper->username = 'userA';
 		$mapper->password = '57d82jg05';
@@ -186,7 +213,7 @@ class Micro
 		$mapper->username = 'userB';
 		$mapper->password = 'kbjd94973';
 		$mapper->save();
-
+		*/
 
 
 
