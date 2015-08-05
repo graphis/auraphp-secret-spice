@@ -14,24 +14,13 @@
 
 namespace Application;
 
-
-
 // vendor classes
 use Aura\Router\RouterFactory;
 use Aura\View\View;
 
-
-
 // application thingies
 use Application\Helper\Arr;
-use Application\Helper\Console;
-
-// use Application\DB\Jig\Mapper;
-
-
-//
-use Underscore\Underscore;
-use Underscore\Collection;
+use Application\Helper\Debug;
 
 
 
@@ -55,7 +44,7 @@ class Micro
 
 
 	/**
-	 * Checks if pjax is set
+	 * Checks if pjax is setting
 	 * @param Closure $callback Closure Callback to be executed
 	 * @return void
 	 */
@@ -70,15 +59,7 @@ class Micro
 		}
 		return FALSE;
 	}
-	// 
-	public function debug($data)
-	{
-		echo '<br/>';
-		echo '<pre><code>';
-		print_r($data);
-		echo '</code></pre>';
-		echo '<br/>';
-	}
+
 
 
 	/**
@@ -90,7 +71,7 @@ class Micro
 	{
 		// echo '_____________________________' . __FUNCTION__ . '<br/>';
 
-		$this->before();
+		// $this->before();
 
 		// initiate router
 		$this->router_factory = new RouterFactory;
@@ -142,17 +123,6 @@ class Micro
 	public function before()
 	{
 		// echo '_____________________________' . __LINE__ . '<br/>';
-
-		$test = new \Application\Helper\Arr;
-
-		// application / configuration
-		// get view files and paths
-		$zorro = include APPPATH . 'configuration/views.php';
-
-//		$this->debug($zorro);
-		$value = Arr::path($zorro, 'views.partials.layout');
-//		$this->debug($value);
-
 	}
 
 	/**
@@ -174,6 +144,9 @@ class Micro
 	{
 		echo '_____________________________' . __FUNCTION__ . '<br/>';
 		
+		$debug = new Debug();
+		$debug->console('hi from the debug class to console');
+		$debug->page('hi from the debug class to page');
 
 		// $db = new DB\Jig ( '../db' );
 
@@ -427,10 +400,10 @@ echo '<pre>';
 		}
 
 		// if request is pjax // currenty handled in render_view function
-		if ( $this->is_pjax() )
+		if( $this->is_pjax() )
 		{
-
-		} 
+			
+		}
 
 
 
@@ -468,8 +441,6 @@ echo '<pre>';
 
 				$this->staticpage = $staticpage;
 
-//				$this->debug($params);
-					// echo '<br/> zzz route -- from micro class<br/>';
 
 			// no route and pjax call
 //			} elseif ($this->is_pjax()) {
