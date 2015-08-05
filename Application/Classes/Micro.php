@@ -178,15 +178,50 @@ class Micro
 		// $db = new DB\Jig ( '../db' );
 
 
-		// http://microdb.morrisbrodersen.de/#Database
 
+		// make db
+		/*
+		$db = new \MicroDB\Database(APPPATH . 'database/pages'); // data directory
+
+		// create an item
+		// id is an auto incrementing integer
+		$id = $db->create(array(
+		    'title' => 'Lorem ipsum',
+		    'body' => 'At vero eos et accusam et justo duo dolores et ea rebum.'
+		));
+
+		// load an item
+		$post = $db->load($id);
+
+		// save an item
+		$post['tags'] = array('lorem', 'ipsum');
+		$post['slug'] = 'this-is-my-slug';
+		$db->save($id, $post);
+
+		// find items
+		$posts = $db->find(function($post) {
+		    return is_array(@$post['tags']) && in_array('ipsum', @$post['tags']);
+		});
+
+		
+		foreach($posts as $id => $post) {
+			// $console->debug($post);
+		    print_r($post);
+		}
+*/
+
+
+
+		// read
+		// http://microdb.morrisbrodersen.de/#Database
+	
 		$db = new \MicroDB\Database(APPPATH . 'database/pages'); // data directory
 
 		$post = $db->load();
 
 		// select record based on id
 		$posts = $db->find(function($post) {
-			return in_array(12, @$post );
+			return in_array('aha', @$post );
 		});
 
 		echo '<pre>';
@@ -194,7 +229,7 @@ class Micro
 		    print_r($post);
 		}
 		echo '</pre>';
-
+		
 
 
 		// create an item
