@@ -170,7 +170,7 @@ class Micro
 	 * @param Closure $callback Closure Callback to be executed
 	 * @return void
 	 */
-	public function finish($staticpage)
+	public function finish()
 	{
 		echo '_____________________________' . __FUNCTION__ . '<br/>';
 		
@@ -220,7 +220,7 @@ echo '<pre>';
 		$id = 1;
 		$post = $db->load($id);
 
-		 $this->staticpage = $staticpage;
+		// $this->staticpage = $staticpage;
 //		echo $staticpage;
 		
 	  //  echo "what______(";
@@ -286,29 +286,6 @@ echo '<pre>';
 	}
 
 
-	//////// underscore functions
-    /**
-     * @inheritDoc
-     */
-    protected function getDummy()
-    {
-        $dummy = array(
-            'name' => 'dummy',
-            'foo'  => 'bar',
-            'baz'  => 'qux',
-        );
-        return $dummy;
-    }
-    protected function getDummy2()
-    {
-        $dummy = array(
-            'name' => 'dummy',
-            'foo'  => 'bar',
-            'baz'  => 'qux',
-        );
-        return $dummy;
-    }
-	
 	
 	
 	/**
@@ -360,7 +337,7 @@ echo '<pre>';
 	 * @param Closure $callback Closure Callback to be executed
 	 * @return void
 	 */
-	public function render_view($static)
+	public function render_view()
 	{
 		// echo '_____________________________' . __FUNCTION__ . '<br/>';
 
@@ -374,7 +351,7 @@ echo '<pre>';
 		if ( $this->is_pjax() )
 		{
 //			$this->debug('pjax true');
-			$this->view->setView( $static );
+			$this->view->setView( $this->staticpage );
 //			if (isset ($static)) {
 //				$view->setView( $static );
 //			} else {
@@ -387,7 +364,7 @@ echo '<pre>';
 //			} else {
 //				$view->setView( 'browse' );
 //			}
-			$this->view->setView( $static );
+			$this->view->setView( $this->staticpage  );
 			$this->view->setLayout( 'layout' );
 		}
 
@@ -488,6 +465,9 @@ echo '<pre>';
 					$staticpage = 'index';
 				}
 
+
+				$this->staticpage = $staticpage;
+
 //				$this->debug($params);
 					// echo '<br/> zzz route -- from micro class<br/>';
 
@@ -511,11 +491,11 @@ echo '<pre>';
 
 		/////////////////// view
 	
-		$this->render_view($staticpage);
+		$this->render_view();
 
 
 		// finish
-		$this->finish($staticpage);
+		$this->finish();
 
 	}
 }
