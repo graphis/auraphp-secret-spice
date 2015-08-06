@@ -54,8 +54,8 @@ class Application extends \Application\Core
 
 		// setting up debug stuff
 		$this->debug = new Debug();
-		$this->debug->console('hi from the debug class to console');
-		$this->debug->page('hi from the debug class to page');
+		// $this->debug->console('hi from the debug class to console');
+		// $this->debug->page('hi from the debug class to page');
 
 	}
 
