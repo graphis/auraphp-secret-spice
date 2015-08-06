@@ -79,6 +79,11 @@ class Application
 	{
 		// echo '_____________________________' . __FUNCTION__ . '<br/>';
 
+		// setting up debug stuff
+		$this->debug = new Debug();
+		$this->debug->console('hi from the debug class to console');
+		$this->debug->page('hi from the debug class to page');
+
 		// $this->before();
 
 		// initiate router
@@ -153,9 +158,7 @@ class Application
 		echo '_____________________________' . __FUNCTION__ . '<br/>';
 		echo '<pre>';
 		
-		$debug = new Debug();
-		$debug->console('hi from the debug class to console');
-		$debug->page('hi from the debug class to page');
+
 		
 //		Lazer::create('pages', array(
 //		    'id'    => 'integer',
@@ -458,8 +461,9 @@ class Application
 		// handle to a function
 		// no route found --- error 404
 		http_response_code($code);
-		$messages = array('Aw, crap!', 'Bloody Hell!', 'Uh Oh!', 'Nope, not here.', 'Huh?');
+		$messages = array('Aw, crap!', 'Bloody Hell!', 'Uh Oh!', 'Huh?');
 		$title = $messages[array_rand($messages)];
+		echo $this->path;
 		echo $title . ' Sorry, page is not there -- '. $code;
 		// exit();
 	}
@@ -472,31 +476,32 @@ class Application
 	 *
 	 * @return void
 	 */
-	public function run($path = null, $request = null)
+//	public function run($path = null, $request = null)
+	public function run()
 	{
 		// echo '_____________________________' . __FUNCTION__ . '<br/>';
 
 		// get the incoming request URL path
-		$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-		// $path = rtrim($path, '/');
+		$this->path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+		// $this->path = rtrim($path, '/');
 
 		// get the route based on the url and server
-		$route = $this->router->match($path, $_SERVER);
+		$this->route = $this->router->match($this->path, $_SERVER);
 
 
 		// if there is no route, make an error 404 for this case
-		if (!$route) {
+		if (!$this->route) {
 			echo 'no route !';
-//			$this->debug($path);
+			$this->debug->page($this->path);
 			$this->error('404');
 			exit();
 		}
 
 		// if request is pjax // currenty handled in render_view function
-		if( $this->is_pjax() )
-		{
+		// if( $this->is_pjax() )
+		// {
 			
-		}
+		// }
 
 
 
@@ -511,17 +516,17 @@ class Application
 		//
 //		try {
 			// check for routes
-			if ($route) {
+			if ($this->route) {
 
 				// there is a root, now get the params
-				$params = $route->params;
+				$params = $this->route->params;
 
 				// does the route indicate an action?
-				if (isset($route->params['pjaxpages'])) {
+				if (isset($this->route->params['pjaxpages'])) {
 					
 					// take the static page directly from the route
 					// but we must trim the trailing slash from the parameter // why is that?
-					$staticpage =  ltrim ( $route->params['pjaxpages'], '/' );
+					$staticpage =  ltrim ( $this->route->params['pjaxpages'], '/' );
 
 					// $staticpage = $params['pjaxpages'];
 					// unset($params['pages']);
