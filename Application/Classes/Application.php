@@ -37,7 +37,7 @@ use Lazer\Classes\Database as Lazer;
  * A microframework wrapper for Aura.Router based off of the Silex api
  *
  */
-class Application extends \Application\Core
+class Application extends Core
 {
 
 	/**
@@ -133,11 +133,14 @@ class Application extends \Application\Core
 		$row = Lazer::table('pages')->find(1);
 		print_r($row);
 */
-		
-		// echo $this->staticpage;
-		$row = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
-		// echo $row->title;
-		print_r($row);
+
+		if ( $this->is_pjax() )
+		{
+			// echo $this->staticpage;
+			$row = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
+			// echo $row->title;
+			print_r($row);
+		}
 
 
 
