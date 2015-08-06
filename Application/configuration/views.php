@@ -11,6 +11,7 @@ return [
         'path' => 'views',					// in application / views /
 
 		'layout' => 'layout.php',			// main layout file
+		'error'  => 'error.php',			// main layout file
 
 	        'partials' => [					// partial views
             	'index'  => '_index.php',
