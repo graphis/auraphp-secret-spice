@@ -25,9 +25,9 @@ $loader->addPrefix('Application', '../application/classes');
 
 
 // kick the application in
-use Application\Micro;
+use Application\Application;
 
-$app = new Micro();
+$app = new Application();
 $app->run();
 
 
