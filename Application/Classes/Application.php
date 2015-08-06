@@ -15,11 +15,11 @@
 namespace Application;
 
 // vendor classes
-use Aura\Router\RouterFactory;
-use Aura\View\View;
+// use Aura\Router\RouterFactory;
+// use Aura\View\View;
 
 // application thingies
-use Application\Helper\Arr;
+// use Application\Helper\Arr;
 use Application\Helper\Debug;
 
 
@@ -44,19 +44,10 @@ define('LAZER_DATA_PATH', APPPATH .'database/'); //Path to folder with tables
 class Application extends \Application\Core
 {
 
-	/**
-	 * Routes file path
-	 */
-//	 const ROUTERMAP = 'configuration/routes.php';
-
-
-
-
-
 
 
 	/**
-	 * Create a Micro framework application
+	 * Create an application
 	 *
 	 * @uses Aura\Router\RouterFactory;
 	 */
@@ -176,7 +167,7 @@ class Application extends \Application\Core
 		// print_r($row);
 		
 		// echo $this->staticpage;
-		$row = Lazer::table('pages')->where('slug', '=', $this->staticpage)->find();
+		$row = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
 		// echo $row->title;
 		print_r($row);
 
@@ -218,105 +209,18 @@ class Application extends \Application\Core
 
 
 
-//	$row = Lazer::table('table_name');
-
-//	$row->nickname = 'new_user';
-//	$row->save();
-
-//	$row->nickname = 'zzz';
-//	$row->save();
-
-//	$row->nickname = 'mikka';
-//	$row->save();
-	
-	
-//	foreach($table as $row)
-//	{
-//	    print_r($row);
-//	}
 
 
 
 
-//		try{
-//		    \Lazer\Classes\Helpers\Validate::table('table_name')->exists();
-//			echo '__ exists';
-
-//			$table = Lazer::table('table_name')->findAll();
-//			foreach($table as $row)
-//			{
-//				echo '<pre>';
-//			    print_r($row);
-//			    print_r($row->id . '<br/>');
-//			    print_r($row->nickname . '<br/>');
-//				echo '</pre>';
-
-				// $debug->page('xxxxxxxx ' . $row);
-				
-//			}
-
-//		} catch(\Lazer\Classes\LazerException $e){
-		    //Database doesn't exist
-//			echo '__ Database doesnt exist';
-//		}
 
 
 
 
-		// read
-		// http://microdb.morrisbrodersen.de/#Database
-	
-
-		
-		// select record based on id
-// 		$posts = $db->find(function($post) {
-			
-			
-	//		if (!is_object($post)) {
-	//		        echo '111111';
-	//		    }
-	//			else if() {
-	//				 echo '22222';
-	//			}
-
-			  //  return $obj->students;
-				
-				
-		//	echo var_dump($post);
-//			return in_array( (string)$this->staticpage, (array)$post );
-//		});
-
-		
-		
-//		foreach($posts as $id => $post) {
-//		    print_r($post);
-//		}
-		echo '</pre>';
-		
 
 
-		// create an item
-		
-		// delete an item
-		// $db->delete($id);
-		
-		
-		
-		/*
-		$mapper = new DB\Jig\Mapper('mydb', 'dbfile');
-		$mapper->username = 'userA';
-		$mapper->password = '57d82jg05';
-		$mapper->save();
-		$mapper->reset();
-		$mapper->username = 'userB';
-		$mapper->password = 'kbjd94973';
-		$mapper->save();
-		*/
 
-
-					
-
-		echo '_____________________________' . __FUNCTION__ . '<br/>';
+		echo '</pre>_____________________________<br/>';
 	}
 
 
@@ -335,6 +239,7 @@ class Application extends \Application\Core
 	{
 		// echo '_____________________________' . __FUNCTION__ . '<br/>';
 
+		// setup views in Core.php
 		$this->setup_views();
 
 		// set data
@@ -345,7 +250,7 @@ class Application extends \Application\Core
 		if ( $this->is_pjax() )
 		{
 //			$this->debug('pjax true');
-			$this->view->setView( $this->staticpage );
+			$this->view->setView( $this->slug );
 //			if (isset ($static)) {
 //				$view->setView( $static );
 //			} else {
@@ -358,7 +263,7 @@ class Application extends \Application\Core
 //			} else {
 //				$view->setView( 'browse' );
 //			}
-			$this->view->setView( $this->staticpage  );
+			$this->view->setView( $this->slug  );
 			$this->view->setLayout( 'layout' );
 		}
 
@@ -424,19 +329,17 @@ class Application extends \Application\Core
 					
 					// take the static page directly from the route
 					// but we must trim the trailing slash from the parameter // why is that?
-					$staticpage =  ltrim ( $this->route->params['pjaxpages'], '/' );
+					$slug =  ltrim ( $this->route->params['pjaxpages'], '/' );
 
 					// $staticpage = $params['pjaxpages'];
 					// unset($params['pages']);
 
 				} else {
 					// use a default action class
-					$staticpage = 'index';
+					$slug = 'index';
 				}
 
-
-				$this->staticpage = $staticpage;
-
+				$this->slug = $slug;
 
 			// no route and pjax call
 //			} elseif ($this->is_pjax()) {
