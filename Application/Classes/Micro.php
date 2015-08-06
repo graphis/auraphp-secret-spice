@@ -156,11 +156,65 @@ class Micro
 		$debug->console('hi from the debug class to console');
 		$debug->page('hi from the debug class to page');
 		
-	//	Lazer::create('table_name', array(
-	//	    'id' => 'integer',
-	//	    'nickname' => 'string'
-	//	));
-		
+//		Lazer::create('pages', array(
+//		    'id'    => 'integer',
+//			'slug'    => 'string',
+//		    'title' => 'string',
+//			'body'  => 'string'
+//		));
+
+
+		$row = Lazer::table('pages');
+		$row->slug = 'zsele';
+		$row->title = 'zsele ___title___';
+		$row->body = 'zsele ___body___';
+		$row->save();
+
+
+		$row = Lazer::table('pages');
+		$row->slug = '974';
+		$row->title = '974 ___title___';
+		$row->body = '974 ___body___';
+		$row->save();
+
+		$row = Lazer::table('pages');
+		$row->slug = 'index';
+		$row->title = 'index ___title___';
+		$row->body = 'index ___body___';
+		$row->save();
+
+
+		die('aa');
+//		$cars = array(
+//		array("Volvo",22,18),
+//		array("BMW",15,13),
+//		array("Saab",5,2),
+//		array("Land Rover",17,15)
+//		);
+
+
+
+
+		// views
+//		$zzs = array(
+//		    'views' => [
+
+//		        'path' => 'views',					// in application / views /
+
+//				'layout' => 'layout.php',			// main layout file
+
+//			        'partials' => [					// partial views
+//		            	'index'  => '_index.php',
+//						'974'    => '_974.php',
+//						'zsele'  => '_zsele.php'
+//		        ]
+
+//		    ]
+//		);
+
+
+
+
 //	$row = Lazer::table('table_name');
 
 //	$row->nickname = 'new_user';
@@ -209,24 +263,7 @@ echo '<pre>';
 		// read
 		// http://microdb.morrisbrodersen.de/#Database
 	
-		$db = new \MicroDB\Database(APPPATH . 'database/pages'); // data directory
 
-		$id = 1;
-		$post = $db->load($id);
-
-		// $this->staticpage = $staticpage;
-//		echo $staticpage;
-		
-	  //  echo "what______(";
-	//	echo var_dump($staticpage[0]);
-//		echo " is_string(";
-//	    var_export($staticpage);
-//	    echo ") = ";
-//	    echo var_dump(is_string($staticpage));
-		
-
-	
-	
 		
 		// select record based on id
 		$posts = $db->find(function($post) {
