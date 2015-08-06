@@ -80,7 +80,7 @@ class Application extends Core
 	 */
 	public function finish()
 	{
-		echo '_____________________________' . __FUNCTION__ . '<br/>';
+		echo '_ _____________________________' . __FUNCTION__ . '<br/>';
 		echo '<pre>';
 		
 
@@ -145,7 +145,7 @@ class Application extends Core
 
 
 
-		echo '</pre>_____________________________<br/>';
+		echo '</pre>_____________________________ _<br/>';
 	}
 
 	/**

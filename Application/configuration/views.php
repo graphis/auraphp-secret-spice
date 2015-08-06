@@ -16,7 +16,8 @@ return [
 	        'partials' => [					// partial views
             	'index'  => '_index.php',
 				'974'    => '_974.php',
-				'zsele'  => '_zsele.php'
+				'zsele'  => '_zsele.php',
+				'work'  => '_work.php'	
         ]
 
     ]

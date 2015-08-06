@@ -34,13 +34,13 @@ $this->router->add('root', '{index}')
 // some sample routes to play with
 $this->router->add('page', '{pages}')
  ->addTokens(array(
-   'pages' => '/work|/play|/dream', //   work OR play OR dream
+   'pages' => '/play|/dream', //   work OR play OR dream
 ));
 
  // pjax testing
 $this->router->add('pjax', '{pjaxpages}')
  	->addTokens(array(
- 		'pjaxpages' => '/zsele|/974|/zorro', //   work OR play OR dream
+ 		'pjaxpages' => '/zsele|/974|/zorro|/work', //   work OR play OR dream
  	));
 
 
