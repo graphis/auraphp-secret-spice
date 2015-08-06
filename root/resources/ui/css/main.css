@@ -9,20 +9,24 @@ body {
 }
 
 
+
 /**
  * page
  */
 #page {
 	margin: 0 auto 0 150px;
 	padding: 0;
-	background: #fff;
+	background: #fcf;
 }
 
 
 
 #header {
-	width: 900px;
+	width: 100%;
+	height: 50px;
+	position: fixed;
 	background: #fff;
+	z-index: 99;
 }
 
 
@@ -58,7 +62,9 @@ ul#main_navigation a:hover {
 
 
 section#main {
-	width: 900px;
+	position: relative;
+	top: 50px;
+	width: 100%;
 	background: #3e274b;
 }
 
