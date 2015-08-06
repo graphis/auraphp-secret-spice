@@ -41,32 +41,17 @@ define('LAZER_DATA_PATH', APPPATH .'database/'); //Path to folder with tables
  * A microframework wrapper for Aura.Router based off of the Silex api
  *
  */
-class Application
+class Application extends \Application\Core
 {
 
 	/**
 	 * Routes file path
 	 */
-	 const ROUTERMAP = 'configuration/routes.php';
+//	 const ROUTERMAP = 'configuration/routes.php';
 
 
 
-	/**
-	 * Checks if pjax is setting
-	 * @param Closure $callback Closure Callback to be executed
-	 * @return void
-	 */
-	function is_pjax()
-	{
-		// echo '_____________________________' . __FUNCTION__ . '<br/>';
 
-		// if( isset( $_SERVER['HTTP_X_PJAX'] ) && strtolower( $_SERVER['HTTP_X_PJAX'] ) == 'true' ) {
-		if(isset($_SERVER['HTTP_X_PJAX']) && $_SERVER['HTTP_X_PJAX'] == 'true')
-		{
-			return TRUE;
-		}
-		return FALSE;
-	}
 
 
 
@@ -79,6 +64,8 @@ class Application
 	{
 		// echo '_____________________________' . __FUNCTION__ . '<br/>';
 
+		parent::__construct();
+
 		// setting up debug stuff
 		$this->debug = new Debug();
 		$this->debug->console('hi from the debug class to console');
@@ -87,11 +74,11 @@ class Application
 		// $this->before();
 
 		// initiate router
-		$this->router_factory = new RouterFactory;
-		$this->router = $this->router_factory->newInstance();
+//		$this->router_factory = new RouterFactory;
+//		$this->router = $this->router_factory->newInstance();
 
 		// get the routes
-		$this->getRoutes();
+//		$this->getRoutes();
 
 		// $this->after();
 	}
@@ -102,29 +89,7 @@ class Application
 
 
 
-	/**
-	 * get routes
-	 *
-	 * @return Aura\Router\Map
-	 */
-	public function getRoutes()
-	{
-		// echo '_____________________________' . __FUNCTION__ . '<br/>';
 
-		// Routes are defined in application/config/routes.php
-		if (file_exists(APPPATH . self::ROUTERMAP)) {
-		// Let the app specify it's own routes.
-		include_once(APPPATH . self::ROUTERMAP);
-		} else {
-			// echo 'the required file '.$file.' was not found';
-			// Fall back on some sensible defaults.
-			// $router->add(null, '/');
-			// $router->add(null, '/{controller}');
-			// $router->add(null, '/{controller}/{action}');
-			// $router->add(null, '/{controller}/{action}/{id}');
-		}
-
-	}
 
 
 
@@ -356,47 +321,7 @@ class Application
 
 
 	
-	
-	/**
-	 * setting up views and registering them
-	 */
-	public function setup_views()
-	{
-	
-		/////////////////// view
-		// initiate views
-		$view_factory = new \Aura\View\ViewFactory;
-		$this->view = $view_factory->newInstance();
 
-		// the "main" template
-		$layout_registry = $this->view->getLayoutRegistry();
-		$view_registry = $this->view->getViewRegistry();
-
-		// config file
-		$views = include APPPATH . 'configuration/views.php';
-
-		if (is_array($views))
-		{
-			// 00
-			// vars
-			$folder   = Arr::path($views, 'views.path');
-			$layout   = Arr::path($views, 'views.layout');
-			$partials = Arr::path($views, 'views.partials');
-
-			// 01 
-			// main template
-			$layout_registry->set('layout', APPPATH . $folder . DIRECTORY_SEPARATOR . $layout);
-
-			// 02
-			// sub templates
-			foreach ($partials as $key => $value)
-		    {
-				$view_registry->set( $key,  APPPATH . $folder . DIRECTORY_SEPARATOR . $value );
-			}
-		}
-		// OK
-		
-	}
 
 
 
@@ -439,33 +364,6 @@ class Application
 
 		//
 		echo $this->view->__invoke();
-	}
-
-
-
-
-
-
-
-
-
-	/**
-	 * route not found -- 404 error
-	 * @param Closure $callback Closure Callback to be executed
-	 * @return void
-	 */
-	public function error($code)
-	{
-		// echo '_____________________________' . __FUNCTION__ . '<br/>';
-
-		// handle to a function
-		// no route found --- error 404
-		http_response_code($code);
-		$messages = array('Aw, crap!', 'Bloody Hell!', 'Uh Oh!', 'Huh?');
-		$title = $messages[array_rand($messages)];
-		echo $this->path;
-		echo $title . ' Sorry, page is not there -- '. $code;
-		// exit();
 	}
 
 
