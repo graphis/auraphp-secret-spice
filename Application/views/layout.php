@@ -5,7 +5,7 @@
 	<title>aura-secret-spice</title>
 
 	<!-- css reset -->
-	<link rel="stylesheet" type="text/css" href="resources/ui/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="resources/ui/css/reset.css" />
 
 	<!-- site specific css -->
 	<link rel="stylesheet" type="text/css" href="resources/ui/css/main.css" />
