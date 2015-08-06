@@ -151,6 +151,7 @@ class Micro
 	public function finish()
 	{
 		echo '_____________________________' . __FUNCTION__ . '<br/>';
+		echo '<pre>';
 		
 		$debug = new Debug();
 		$debug->console('hi from the debug class to console');
@@ -163,7 +164,7 @@ class Micro
 //			'body'  => 'string'
 //		));
 
-
+/*
 		$row = Lazer::table('pages');
 		$row->slug = 'zsele';
 		$row->title = 'zsele ___title___';
@@ -183,8 +184,42 @@ class Micro
 		$row->body = 'index ___body___';
 		$row->save();
 
+*/
 
-		die('aa');
+
+
+//		$row = Lazer::table('pages');
+
+		// Multiple select
+//		$table = Lazer::table('pages')->findAll();
+//		foreach($table as $row)
+//		{
+//			echo '<pre>';
+		    // print_r($row);
+//		    print_r($row->id . '<br/>');
+//		    print_r($row->slug . '<br/>');
+//			print_r($row->title . '<br/>');
+//			print_r($row->body . '<br/>');
+//			echo '</pre>';			
+//		}
+
+		// Single record select
+		// $row = Lazer::table('pages')->find(1);
+		// print_r($row);
+		
+		// echo $this->staticpage;
+		$row = Lazer::table('pages')->where('slug', '=', $this->staticpage)->find();
+		// echo $row->title;
+		print_r($row);
+
+
+
+
+
+
+
+
+
 //		$cars = array(
 //		array("Volvo",22,18),
 //		array("BMW",15,13),
@@ -239,18 +274,18 @@ class Micro
 //		    \Lazer\Classes\Helpers\Validate::table('table_name')->exists();
 //			echo '__ exists';
 
-			$table = Lazer::table('table_name')->findAll();
-			foreach($table as $row)
-			{
-				echo '<pre>';
-			    print_r($row);
-			    print_r($row->id . '<br/>');
-			    print_r($row->nickname . '<br/>');
-				echo '</pre>';
+//			$table = Lazer::table('table_name')->findAll();
+//			foreach($table as $row)
+//			{
+//				echo '<pre>';
+//			    print_r($row);
+//			    print_r($row->id . '<br/>');
+//			    print_r($row->nickname . '<br/>');
+//				echo '</pre>';
 
 				// $debug->page('xxxxxxxx ' . $row);
 				
-			}
+//			}
 
 //		} catch(\Lazer\Classes\LazerException $e){
 		    //Database doesn't exist
@@ -259,14 +294,14 @@ class Micro
 
 
 
-echo '<pre>';
+
 		// read
 		// http://microdb.morrisbrodersen.de/#Database
 	
 
 		
 		// select record based on id
-		$posts = $db->find(function($post) {
+// 		$posts = $db->find(function($post) {
 			
 			
 	//		if (!is_object($post)) {
@@ -280,14 +315,14 @@ echo '<pre>';
 				
 				
 		//	echo var_dump($post);
-			return in_array( (string)$this->staticpage, (array)$post );
-		});
+//			return in_array( (string)$this->staticpage, (array)$post );
+//		});
 
 		
 		
-		foreach($posts as $id => $post) {
-		    print_r($post);
-		}
+//		foreach($posts as $id => $post) {
+//		    print_r($post);
+//		}
 		echo '</pre>';
 		
 
