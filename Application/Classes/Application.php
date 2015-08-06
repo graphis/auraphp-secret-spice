@@ -134,10 +134,11 @@ class Application extends Core
 		print_r($row);
 */
 
+		// echo $this->staticpage;
+		$row = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
+
 		if ( $this->is_pjax() )
 		{
-			// echo $this->staticpage;
-			$row = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
 			// echo $row->title;
 			print_r($row);
 		}
