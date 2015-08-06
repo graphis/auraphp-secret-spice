@@ -24,9 +24,9 @@ use Application\Helper\Debug;
 
 
 
-define('LAZER_DATA_PATH', realpath(dirname(__FILE__)).'/data/'); //Path to folder with tables
 
 use Lazer\Classes\Database as Lazer; // example
+define('LAZER_DATA_PATH', APPPATH .'database/'); //Path to folder with tables
 
 
 
@@ -203,47 +203,6 @@ class Micro
 //			echo '__ Database doesnt exist';
 //		}
 
-
-
-
-
-		
-
-
-		// $db = new DB\Jig ( '../db' );
-
-
-
-		// make db
-		/*
-		$db = new \MicroDB\Database(APPPATH . 'database/pages'); // data directory
-
-		// create an item
-		// id is an auto incrementing integer
-		$id = $db->create(array(
-		    'title' => 'Lorem ipsum',
-		    'body' => 'At vero eos et accusam et justo duo dolores et ea rebum.'
-		));
-
-		// load an item
-		$post = $db->load($id);
-
-		// save an item
-		$post['tags'] = array('lorem', 'ipsum');
-		$post['slug'] = 'this-is-my-slug';
-		$db->save($id, $post);
-
-		// find items
-		$posts = $db->find(function($post) {
-		    return is_array(@$post['tags']) && in_array('ipsum', @$post['tags']);
-		});
-
-		
-		foreach($posts as $id => $post) {
-			// $console->debug($post);
-		    print_r($post);
-		}
-*/
 
 
 echo '<pre>';
@@ -455,8 +414,8 @@ echo '<pre>';
 
 		// if there is no route, make an error 404 for this case
 		if (!$route) {
-			echo 'no route !!';
-			$this->debug($path);
+			echo 'no route !';
+//			$this->debug($path);
 			$this->error('404');
 			exit();
 		}
