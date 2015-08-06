@@ -8,7 +8,7 @@
  * @package my_application
  * @version	1.7
  * @license http://opensource.org/licenses/bsd-license.php BSD
- * @copyright  2015 Zsolt Sándor
+ * @copyright 2015 Zsolt Sándor
  *
  */
 
@@ -34,7 +34,7 @@ define('LAZER_DATA_PATH', APPPATH .'database/'); //Path to folder with tables
 
 /**
  *
- * @package Aura.Micro
+ * @package Auraphp-secret-spice
  *
  * @license http://opensource.org/licenses/MIT MIT
  *
