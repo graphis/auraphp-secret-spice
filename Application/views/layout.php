@@ -66,12 +66,10 @@
 	<nav class='header'>
 
 		<ul id='main_navigation'>
+			<li><a href='/'>index</a></li>
 			<li><a href='/work'>work</a></li>
-			<li><a href='/play'>play</a></li>
-			<li><a href='/sleep'>sleep</a></li>
-			<li><a href='974'   data-pjax='main' >974</a></li>
-			<li><a href='zsele' data-pjax='main' >zsele</a></li>
-			<li><a href='/'     data-pjax='main' >index</a></li>
+			<li><a href='974'>974</a></li>
+			<li><a href='zsele'>zsele</a></li>
 		</ul>
 	</nav>
 
