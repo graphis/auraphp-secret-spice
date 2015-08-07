@@ -181,25 +181,27 @@ class Application extends Core
 		$this->route = $this->router->match($this->path, $_SERVER);
 
 
-		// if there is no route, make an error 404 for this case
+
+		// 01 if no route exists then 404 error
+		// 02 if request is ajax
+		// 03 else process params and get the slug based on the route segment
+		
+		// 01 if there is no route, make an error 404 for this case
 		if (!$this->route) {
 			echo 'no route !';
 			$this->debug->page($this->path);
 			$this->error('404');
 			exit();
 		}
+		// 02 if request is pjax // currenty handled in render_view function
+		if( $this->is_pjax() )
+		{
+			//
+		}
+		// 03 check for routes
+//		if ($this->route) {
+		else {
 
-		// if request is pjax // currenty handled in render_view function
-		// if( $this->is_pjax() )
-		// {
-			// 
-		// }
-
-
-
-
-		// check for routes
-		if ($this->route) {
 
 			// there is a route, now get the params
 			$params = $this->route->params;
@@ -212,11 +214,13 @@ class Application extends Core
 
 			// default slug if none is set
 			// root path, since we can not map / to a view
-			} if ( $this->slug === ''  ) {
+//			} if ( $this->slug === ''  ) {
+			} if (empty($this->slug) ) {
 				$this->slug = 'index';
-			} else {
-				$this->slug = 'index';
-			}
+			} 
+			//else {
+			//	$this->slug = 'index';
+			//}
 		}
 
 		//
