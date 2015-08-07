@@ -14,16 +14,9 @@
 
 namespace Application;
 
-// vendor classes
-// use Aura\Router\RouterFactory;
-// use Aura\View\View;
 
-// application thingies
-// use Application\Helper\Arr;
+
 use Application\Helper\Debug;
-
-
-
 use Lazer\Classes\Database as Lazer;
 
 
@@ -61,22 +54,16 @@ class Application extends Core
 
 	/**
 	 * Add callback for before routing dispatches
-	 * @param Closure $callback Closure Callback to be executed
-	 * @return void
 	 */
 	public function before(){}
 
 	/**
 	 * Add callback for after routing dispatches
-	 * @param Closure $callback Closure Callback to be executed
-	 * @return void
 	 */
 	public function after(){}
 
 	/**
 	 * Add callback for when routing dispatching is finsihed
-	 * @param Closure $callback Closure Callback to be executed
-	 * @return void
 	 */
 	public function finish()
 	{
@@ -155,8 +142,6 @@ class Application extends Core
 	 */
 	public function render_view()
 	{
-		// echo '_____________________________' . __FUNCTION__ . '<br/>';
-
 		// setup views in Core.php
 		$this->setup_views();
 
@@ -188,8 +173,6 @@ class Application extends Core
 	 */
 	public function run()
 	{
-		// echo '_____________________________' . __FUNCTION__ . '<br/>';
-
 		// get the incoming request URL path
 		$this->path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 		// $this->path = rtrim($path, '/');
@@ -209,34 +192,32 @@ class Application extends Core
 		// if request is pjax // currenty handled in render_view function
 		// if( $this->is_pjax() )
 		// {
-			
+			// 
 		// }
 
 
 
-			// check for routes
-			if ($this->route) {
 
-				// there is a route, now get the params
-				$params = $this->route->params;
+		// check for routes
+		if ($this->route) {
 
-				// does the route indicate an action?
-				if (isset($this->route->params['pjaxpages'])) {
+			// there is a route, now get the params
+			$params = $this->route->params;
 
-					// take the static page directly from the route
-					// and trim the trailing slash from the parameter
-					$this->slug =  ltrim ( $this->route->params['pjaxpages'], '/' );
-					// $staticpage = $params['pjaxpages'];
-					// unset($params['pages']);
+			// does the route indicate an action?
+			if (isset($this->route->params['pjaxpages'])) {
 
-				// default slug if none is set
-				// root path, since we can not map / to a view
-				} if ( $this->slug === ''  ) {
-					$this->slug = 'index';
-				} else {
-					$this->slug = 'index';
-				}
+				// take the static page directly from the route and trim the trailing slash from the parameter
+				$this->slug =  ltrim ( $this->route->params['pjaxpages'], '/' );
+
+			// default slug if none is set
+			// root path, since we can not map / to a view
+			} if ( $this->slug === ''  ) {
+				$this->slug = 'index';
+			} else {
+				$this->slug = 'index';
 			}
+		}
 
 		//
 		$this->render_view();
