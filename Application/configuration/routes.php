@@ -26,21 +26,21 @@ $this->router->addValues(array(
 // ));
 
 // root route
-$this->router->add('root', '{index}')
- ->addTokens(array(
-   'index' => '/|/index.php', //   /   OR   /index.php
- ));
+//$this->router->add('root', '{index}')
+// ->addTokens(array(
+//   'index' => '/|/index.php', //   /   OR   /index.php
+// ));
 
 // some sample routes to play with
-$this->router->add('page', '{pages}')
- ->addTokens(array(
-   'pages' => '/play|/dream', //   work OR play OR dream
-));
+//$this->router->add('page', '{pages}')
+// ->addTokens(array(
+//   'pages' => '/play|/dream', //   work OR play OR dream
+//));
 
  // pjax testing
 $this->router->add('pjax', '{pjaxpages}')
  	->addTokens(array(
- 		'pjaxpages' => '/zsele|/974|/zorro|/work', //   work OR play OR dream
+ 		'pjaxpages' => '/|/zsele|/974|/zorro|/work' //   work OR play OR dream
  	));
 
 
