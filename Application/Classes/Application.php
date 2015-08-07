@@ -222,17 +222,18 @@ class Application extends Core
 
 				// does the route indicate an action?
 				if (isset($this->route->params['pjaxpages'])) {
-					
+
 					// take the static page directly from the route
 					// and trim the trailing slash from the parameter
 					$this->slug =  ltrim ( $this->route->params['pjaxpages'], '/' );
-
 					// $staticpage = $params['pjaxpages'];
 					// unset($params['pages']);
 
+				// default slug if none is set
+				// root path, since we can not map / to a view
+				} if ( $this->slug === ''  ) {
+					$this->slug = 'index';
 				} else {
-
-					// default slug if none is set
 					$this->slug = 'index';
 				}
 			}
