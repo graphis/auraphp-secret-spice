@@ -3,6 +3,11 @@
 <div>
 	
 <pre>
+seeking world domination through graphic design
+
+
+
+
 974-ben volt a legjobb évem
 örökké tartott a nyár, és te voltál a Cár
 te, akinek neve sincsen, és nem létezel csak itt benn
