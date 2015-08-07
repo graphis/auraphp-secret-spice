@@ -17,6 +17,9 @@ namespace Application;
 
 
 use Application\Helper\Debug;
+use Application\Helper\xml;
+use Application\Helper\Arr;
+
 use Lazer\Classes\Database as Lazer;
 
 
@@ -47,6 +50,8 @@ class Application extends Core
 
 		// setting up debug stuff
 		$this->debug = new Debug();
+		
+		// $this->before();
 		// $this->debug->console('hi from the debug class to console');
 		// $this->debug->page('hi from the debug class to page');
 
@@ -67,9 +72,55 @@ class Application extends Core
 	 */
 	public function finish()
 	{
-		echo '_ _____________________________' . __FUNCTION__ . '<br/>';
-		echo '<pre>';
+		echo '_ _____________________________' . __FUNCTION__ . '<pre><br/>';
 		
+
+		$xml = new xml( APPPATH . 'xml' . DIRECTORY_SEPARATOR . $this->slug . '.xml');
+
+
+//		$this->debug->page( $xml->data );
+//		$this->debug->page( $xml->data['page'] );
+
+
+		// Flatten the array
+		$xml_flattened = Arr::flatten($xml->data);
+
+//		print_r($xml_flattened);
+
+		$z_slug     = Arr::path($xml_flattened, 'slug');
+		
+		$z_title    = Arr::path($xml_flattened, 'title');
+
+		$z_body     = Arr::path($xml_flattened, 'body');
+
+
+
+		// Multiple select
+//		foreach($xml->data['page'] as $row)
+//		{
+			echo 'page _ <br/>';
+			echo ' _____________ <br/>';
+		    print_r($z_slug);
+			echo ' <br/>';
+			print_r($z_title);
+			echo '  <br/>';
+			print_r($z_body);
+			echo ' _____________ <br/>';
+
+
+	
+//		}
+
+		// Single record select
+//		$row = Lazer::table('pages')->find(1);
+//		print_r($row);
+
+
+
+
+		// var_dump($xml->data);
+
+
 
 /*		
 		Lazer::create('pages', array(
