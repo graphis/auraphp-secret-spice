@@ -183,7 +183,8 @@ class Application extends Core
 
 
 		// 01 if no route exists then 404 error
-		// 02 if request is ajax
+		// 02 if request is ajax // not used currently as 03 else does not get executed
+		   // use only if processing ajax requests requires other logic as normal requests
 		// 03 else process params and get the slug based on the route segment
 		
 		// 01 if there is no route, make an error 404 for this case
@@ -193,11 +194,10 @@ class Application extends Core
 			$this->error('404');
 			exit();
 		}
+
 		// 02 if request is pjax // currenty handled in render_view function
-		if( $this->is_pjax() )
-		{
-			//
-		}
+//		if($this->is_pjax()){}
+
 		// 03 check for routes
 //		if ($this->route) {
 		else {
