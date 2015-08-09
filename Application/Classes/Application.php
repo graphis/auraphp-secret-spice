@@ -111,6 +111,30 @@ class Application extends Core
 	
 //		}
 
+
+		//if table does not exists create
+		try {
+		\Lazer\Classes\Helpers\Validate::table('pages')->exists();
+		} catch(\Lazer\Classes\LazerException $e) {
+			Lazer::create('pages', array(
+			    'id'    => 'integer',
+				'slug'    => 'string',
+			    'title' => 'string',
+				'body'  => 'string'
+		));
+		}
+
+//		$row = Lazer::table('pages');
+//		$row->slug = 'zsele';
+//		$row->title = 'zsele ___title___';
+//		$row->body = 'zsele ___body___';
+//		$row->save();
+
+		$row = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
+//	    $row = Lazer::table('pages')->where('slug', '=', $this->slug)->findAll()->count();
+	    print_r($row);
+		echo 'kkkkkeqweqweqweqweqwe';
+
 		// Single record select
 //		$row = Lazer::table('pages')->find(1);
 //		print_r($row);
@@ -120,36 +144,6 @@ class Application extends Core
 
 		// var_dump($xml->data);
 
-
-
-/*		
-		Lazer::create('pages', array(
-		    'id'    => 'integer',
-			'slug'    => 'string',
-		    'title' => 'string',
-			'body'  => 'string'
-		));
-*/
-
-/*
-		$row = Lazer::table('pages');
-		$row->slug = 'zsele';
-		$row->title = 'zsele ___title___';
-		$row->body = 'zsele ___body___';
-		$row->save();
-
-		$row = Lazer::table('pages');
-		$row->slug = '974';
-		$row->title = '974 ___title___';
-		$row->body = '974 ___body___';
-		$row->save();
-
-		$row = Lazer::table('pages');
-		$row->slug = 'index';
-		$row->title = 'index ___title___';
-		$row->body = 'index ___body___';
-		$row->save();
-*/
 
 /*
 		$row = Lazer::table('pages');
@@ -171,13 +165,14 @@ class Application extends Core
 		$row = Lazer::table('pages')->find(1);
 		print_r($row);
 */
+		echo 'xxx xxx xxx _____________________________ _<br/>';
 
 		// echo $this->staticpage;
 		$row = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
 
 		if ( $this->is_pjax() )
 		{
-			// echo $row->title;
+			echo $row->title;
 			print_r($row);
 		}
 
@@ -197,17 +192,19 @@ class Application extends Core
 		$this->setup_views();
 
 		// set data
-		$this->view->setData(array('name' => 'Aura -- data from micro.php'));
+		$this->view->setData(array('name' => 'Auraphp-secret-spice -- data from application.php'));
 
 		// check for ajax request
 		if ( $this->is_pjax() )
 		{
-			// set partial view based on slug
+			// We have ajax request here
+			// 01 set partial view based on slug
 			$this->view->setView( $this->slug );
 
 		} else {
 
-			// set partial view based on slug, and view layout
+			// We have regular http request for a page
+			// 01 set partial view based on slug, and 02  set the view layout
 			$this->view->setView( $this->slug  );
 			$this->view->setLayout( 'layout' );
 		}
