@@ -38,12 +38,11 @@ class Core
 {
 
 
-	 const ROUTERMAP = 'configuration/routes.php';
+	const ROUTERMAP = 'configuration/routes.php';
 
 
 	public function __construct()
 	{
-	//	echo ' from Zorro _____________________________' . __FUNCTION__ . '<br/>';
 
 		// initiate router
 		$this->router_factory = new RouterFactory;
@@ -67,22 +66,19 @@ class Core
 
 		// Routes are defined in application/config/routes.php
 		if (file_exists(APPPATH . self::ROUTERMAP)) {
-		// Let the app specify it's own routes.
-		include_once(APPPATH . self::ROUTERMAP);
+			// Let the app specify it's own routes.
+			include_once(APPPATH . self::ROUTERMAP);
 		} else {
-			// echo 'the required file '.$file.' was not found';
+
 			// Fall back on some sensible defaults.
-			// $router->add(null, '/');
-			// $router->add(null, '/{controller}');
-			// $router->add(null, '/{controller}/{action}');
-			// $router->add(null, '/{controller}/{action}/{id}');
+			// /
+			$this->router->add(null, '/');
 		}
 
 	}
 
 
 
-	// moved to parent class ???
 	/**
 	 * setting up views and registering them
 	 */

@@ -31,6 +31,7 @@ use Lazer\Classes\Database as Lazer;
  * @license http://opensource.org/licenses/MIT MIT
  *
  * A microframework wrapper for Aura.Router based off of the Silex api
+ * Using aura.view, and aura.autoload
  *
  */
 class Application extends Core
@@ -151,7 +152,7 @@ class Application extends Core
 	}
 
 	/**
-	 * Add callback for when routing dispatching is finsihed
+	 * Render aura.view partials based on slug
 	 * @param Closure $callback Closure Callback to be executed
 	 * @return void
 	 */
@@ -184,7 +185,11 @@ class Application extends Core
 
 
 
-	//
+	/**
+	 * Render and add data to partial 
+	 * @param Closure $callback Closure Callback to be executed
+	 * @return void
+	 */
 	public function dynamic_view()
 	{
 
