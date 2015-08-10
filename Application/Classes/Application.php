@@ -184,13 +184,11 @@ class Application extends Core
 
 
 
+	//
 	public function dynamic_view()
 	{
 
-
 		$table = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
-//	    $row = Lazer::table('pages')->where('slug', '=', $this->slug)->findAll()->count();
-//	    print_r($row);
 
 		$items = array();
 
@@ -205,40 +203,12 @@ class Application extends Core
 			$items['body']  = $row->body;
 		}
 
-
-		// array_push($items, 'name', 'Auraphp-secret-spice -- data from application.php');
-		
-	//	$Array_Name = array(1 => 10, 2 => 20, 3 => 30, 4 => 40);
-
-
-	//	array_push($items, 0, "Auraphp-secret-spice -- data from application.php");
-
-
-
-
-	//		print_r($arr3);
-
-
-// echo '<pre>';
-// print_r( $items );
-// echo '</pre>';	
-
-
-
 		// setup views in Core.php
 		$this->setup_views();
 
-	//	$this->view->setData( $items );
-	
 		$this->view->setData(array(
 		    'items' => $items
 		));
-		
-
-
-
-		// set data
-	//	$this->view->setData(array('name' => 'Auraphp-secret-spice -- data from application.php'));
 
 		// check for ajax request
 		if ( $this->is_pjax() )
