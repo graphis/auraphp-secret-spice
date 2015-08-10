@@ -46,7 +46,7 @@ define('APPPATH', realpath($application).DIRECTORY_SEPARATOR);
 define('SYSPATH', realpath($system).DIRECTORY_SEPARATOR);
 
 // Clean up the configuration vars
-unset($application, $modules, $system);
+unset($application, $system);
 
 
 /**
