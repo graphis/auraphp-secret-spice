@@ -15,8 +15,18 @@ foreach ($this->items as $item) {
 }
 */
 
+if (array_key_exists('slug', $this->items)) {
+//    echo "The 'first' element is in the array";
+	print_r( $this->items['slug'] );
+} else {
+	echo 'no slug given';
+}
+
+
+
+
 //if (defined( (string)$this->items['slug'] )) {
-   print_r( $this->items['slug'] );
+   
    //}
 
 
