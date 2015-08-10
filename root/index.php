@@ -59,6 +59,15 @@ unset($application, $system);
 // $time_start = microtime(true);
 
 
+/**
+ * Define the memory usage at the start of the application, used for profiling.
+ */
+// if ( ! defined('KOHANA_START_MEMORY'))
+// {
+ //	define('BASE_MEMORY_USAGE', memory_get_usage());
+	define('BASE_MEMORY_USAGE', memory_get_peak_usage());
+	
+// }
 
 // Kickstart the framework
 require SYSPATH.'vendor/autoload.php';
