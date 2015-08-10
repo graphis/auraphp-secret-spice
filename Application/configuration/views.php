@@ -17,7 +17,10 @@ return [
             	'index'  => '_index.php',
 				'974'    => '_974.php',
 				'zsele'  => '_zsele.php',
-				'work'  => '_work.php'	
+				'work'   => '_work.php',
+
+				'content' => '____content.php'
+
         ]
 
     ]

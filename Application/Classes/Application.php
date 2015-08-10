@@ -72,40 +72,8 @@ class Application extends Core
 	 */
 	public function finish()
 	{
-		echo '_ _____________________________' . __FUNCTION__ . '<pre><br/>';
+//		echo '_ _____________________________' . __FUNCTION__ . '<pre><br/>';
 		
-
-		$xml = new xml( APPPATH . 'xml' . DIRECTORY_SEPARATOR . $this->slug . '.xml');
-
-
-//		$this->debug->page( $xml->data );
-//		$this->debug->page( $xml->data['page'] );
-
-
-		// Flatten the array
-		$xml_flattened = Arr::flatten($xml->data);
-
-//		print_r($xml_flattened);
-
-		$z_slug     = Arr::path($xml_flattened, 'slug');
-		
-		$z_title    = Arr::path($xml_flattened, 'title');
-
-		$z_body     = Arr::path($xml_flattened, 'body');
-
-
-
-		// Multiple select
-//		foreach($xml->data['page'] as $row)
-//		{
-			echo 'page _ <br/>';
-			echo ' _____________ <br/>';
-		    print_r($z_slug);
-			echo ' <br/>';
-			print_r($z_title);
-			echo '  <br/>';
-			print_r($z_body);
-			echo ' _____________ <br/>';
 
 
 	
@@ -130,10 +98,12 @@ class Application extends Core
 //		$row->body = 'zsele ___body___';
 //		$row->save();
 
-		$row = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
+
+
+//		$row = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
 //	    $row = Lazer::table('pages')->where('slug', '=', $this->slug)->findAll()->count();
-	    print_r($row);
-		echo 'kkkkkeqweqweqweqweqwe';
+//	    print_r($row);
+//		echo 'kkkkkeqweqweqweqweqwe';
 
 		// Single record select
 //		$row = Lazer::table('pages')->find(1);
@@ -165,20 +135,19 @@ class Application extends Core
 		$row = Lazer::table('pages')->find(1);
 		print_r($row);
 */
-		echo 'xxx xxx xxx _____________________________ _<br/>';
 
 		// echo $this->staticpage;
-		$row = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
+//		$row = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
 
-		if ( $this->is_pjax() )
-		{
-			echo $row->title;
-			print_r($row);
-		}
+//		if ( $this->is_pjax() )
+//		{
+//			echo $row->title;
+//			print_r($row);
+//		}
 
 
 
-		echo '</pre>_____________________________ _<br/>';
+//		echo '</pre>_____________________________ _<br/>';
 	}
 
 	/**
@@ -212,6 +181,88 @@ class Application extends Core
 		//
 		echo $this->view->__invoke();
 	}
+
+
+
+	public function dynamic_view()
+	{
+
+
+		$table = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
+//	    $row = Lazer::table('pages')->where('slug', '=', $this->slug)->findAll()->count();
+//	    print_r($row);
+
+		$items = array();
+
+		$items['name'] = 'Auraphp-secret-spice -- data from application.php';
+
+		foreach($table as $row)
+		{
+			
+			$items['id']    = $row->id;
+			$items['slug']  = $row->slug;
+			$items['title'] = $row->title;
+			$items['body']  = $row->body;
+		}
+
+
+		// array_push($items, 'name', 'Auraphp-secret-spice -- data from application.php');
+		
+	//	$Array_Name = array(1 => 10, 2 => 20, 3 => 30, 4 => 40);
+
+
+	//	array_push($items, 0, "Auraphp-secret-spice -- data from application.php");
+
+
+
+
+	//		print_r($arr3);
+
+
+// echo '<pre>';
+// print_r( $items );
+// echo '</pre>';	
+
+
+
+		// setup views in Core.php
+		$this->setup_views();
+
+	//	$this->view->setData( $items );
+	
+		$this->view->setData(array(
+		    'items' => $items
+		));
+		
+
+
+
+		// set data
+	//	$this->view->setData(array('name' => 'Auraphp-secret-spice -- data from application.php'));
+
+		// check for ajax request
+		if ( $this->is_pjax() )
+		{
+			// We have ajax request here
+			// 01 set partial view based on slug
+			$this->view->setView( 'content' );
+
+		} else {
+
+			// We have regular http request for a page
+			// 01 set partial view based on slug, and 02  set the view layout
+			$this->view->setView( 'content'  );
+			$this->view->setLayout( 'layout' );
+		}
+
+		//
+		echo $this->view->__invoke();
+	}
+
+
+
+
+
 
 	/**
 	 * Run the application:
@@ -272,7 +323,8 @@ class Application extends Core
 		}
 
 		//
-		$this->render_view();
+//		$this->render_view();
+		$this->dynamic_view();
 
 		//
 		$this->finish();
