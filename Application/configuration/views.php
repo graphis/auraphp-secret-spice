@@ -14,12 +14,13 @@ return [
 		'error'  => 'error.php',			// main layout file
 
 	        'partials' => [					// partial views
-            	'index'  => '_index.php',
-				'974'    => '_974.php',
-				'zsele'  => '_zsele.php',
-				'work'   => '_work.php',
 
-				'content' => '____content.php'
+            	'index'  => '_index.php',	// static view
+				'974'    => '_974.php',		// static view
+				'zsele'  => '_zsele.php',	// static view
+				'work'   => '_work.php',	// static view
+
+				'content' => '____content.php' // used for content from database
 
         ]
 
