@@ -20,7 +20,7 @@ return [
 				'zsele'  => '_zsele.php',	// static view
 				'work'   => '_work.php',	// static view
 
-				'content' => '____content.php' // used for content from database
+				'content' => 'partial/____content.php' // used for content from database
 
         ]
 
