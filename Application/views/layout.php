@@ -87,6 +87,7 @@
 <!-- main -->
 <section id="main">
 <?php echo $this->getContent(); ?>
+
 </section>
 <!-- / main -->
 
