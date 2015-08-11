@@ -15,10 +15,10 @@ return [
 
 	        'partials' => [					// partial views
 
-            	'index'  => '_index.php',	// static view
-				'974'    => '_974.php',		// static view
-				'zsele'  => '_zsele.php',	// static view
-				'work'   => '_work.php',	// static view
+            	'index'  => 'partial/_index.php',	// static view
+				'974'    => 'partial/_974.php',		// static view
+				'zsele'  => 'partial/_zsele.php',	// static view
+				'work'   => 'partial/_work.php',	// static view
 
 				'content' => 'partial/____content.php' // used for content from database
 
