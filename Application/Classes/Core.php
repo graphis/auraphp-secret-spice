@@ -103,11 +103,16 @@ class Core
 			// vars
 			$folder   = Arr::path($views, 'views.path');
 			$layout   = Arr::path($views, 'views.layout');
+			$error    = Arr::path($views, 'views.error');
+
 			$partials = Arr::path($views, 'views.partials');
 
 			// 01 
 			// main template
 			$layout_registry->set('layout', APPPATH . $folder . DIRECTORY_SEPARATOR . $layout);
+
+			// error template
+			$layout_registry->set('error', APPPATH . $folder . DIRECTORY_SEPARATOR . $error);
 
 			// 02
 			// sub templates
@@ -129,7 +134,6 @@ class Core
 	 */
 	public function error($code)
 	{
-		// echo '_____________________________' . __FUNCTION__ . '<br/>';
 
 		// handle to a function
 		// no route found --- error 404
@@ -138,6 +142,13 @@ class Core
 		$title = $messages[array_rand($messages)];
 		echo $this->path;
 		echo $title . ' Sorry, page is not there -- '. $code;
+
+
+		// error template
+
+	//	$this->setup_views();
+		// $this->view->setLayout( 'error' );
+	//	echo $this->view->__invoke();
 		// exit();
 	}
 
