@@ -1,11 +1,13 @@
 <pre>
 	
 	
-	<div>Hello <?php // echo $this->name; ?></div>
+	<div>Hello <?php $this->items['title']; ?></div>
 
 <div>
-xzxzx`zx`zxz`xz`x`zx`zx`zx`
+
 <?php
+
+use Application\Helper\Arr;
 
 /*
 foreach ($this->items as $item) {
@@ -17,11 +19,30 @@ foreach ($this->items as $item) {
 
 if (array_key_exists('slug', $this->items)) {
 //    echo "The 'first' element is in the array";
-	print_r( $this->items['slug'] );
+	
+	
+	echo '<div>Hello ' . $this->items['title'] . '</div>';
+	echo '<br/>';
+	// print_r( $this->stack );
+	echo( 'slug: ' . $this->items['slug'] );
+	echo '<br/>';
+	echo( 'id: ' . $this->items['id'] );
+	echo '<br/>';
+	// echo( $this->items['title'] );
+	// echo '<br/>';
+	echo( 'body: ' . $this->items['body'] );
+	echo '<br/>';
+
 } else {
 	echo 'no slug given';
 }
 
+
+
+$zzz   = Arr::path($this->items, 'slug');
+echo '<br/>';
+echo ' xxx xxx xxx = ' . $zzz;
+echo '<br/>';
 
 
 
