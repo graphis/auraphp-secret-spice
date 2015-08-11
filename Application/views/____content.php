@@ -1,9 +1,20 @@
-<pre>
-	
-	
-	<div>Hello <?php $this->items['title']; ?></div>
+<div class="full case-pad">
 
-<div>
+	<div class="half change-padding">
+		<div class="half right">
+			<h1 class="smooth"><?php echo $this->items['title']; ?></h1>
+		</div>
+	</div>
+
+	<div class="half text-block">
+		<p class="smooth"><?php echo $this->items['body']; ?></p>
+	</div>
+
+</div>
+
+
+
+
 
 <?php
 
@@ -19,8 +30,7 @@ foreach ($this->items as $item) {
 
 if (array_key_exists('slug', $this->items)) {
 //    echo "The 'first' element is in the array";
-	
-	
+
 	echo '<div>Hello ' . $this->items['title'] . '</div>';
 	echo '<br/>';
 	// print_r( $this->stack );
