@@ -44,7 +44,6 @@ class Application extends Core
 	 */
 	public function __construct()
 	{
-		// echo '_____________________________' . __FUNCTION__ . '<br/>';
 		define('LAZER_DATA_PATH', APPPATH .'database/'); //Path to folder with tables
 
 		parent::__construct();
@@ -73,14 +72,6 @@ class Application extends Core
 	 */
 	public function finish()
 	{
-//		echo '_ _____________________________' . __FUNCTION__ . '<pre><br/>';
-		
-
-
-	
-//		}
-
-
 		//if table does not exists create
 		try {
 		\Lazer\Classes\Helpers\Validate::table('pages')->exists();
@@ -289,17 +280,21 @@ class Application extends Core
 			// default slug if none is set
 			// root path, since we can not map / to a view
 //			} if ( $this->slug === ''  ) {
-			} if (empty($this->slug) ) {
+			} if (empty($this->slug ) ) {
 				$this->slug = 'index';
+				// $thispage = $this->dynamic_view();
 			} 
 			//else {
 			//	$this->slug = 'index';
 			//}
 		}
 
-		//
-//		$this->render_view();
-		$this->dynamic_view();
+		// static page is set, call render view, which includes the static view, othervise get the data from the db
+		if ( isset($this->route->params['static_pages'] ) ) {
+			$this->render_view();
+		} else {
+			$this->dynamic_view();
+		}
 
 		//
 		$this->finish();
