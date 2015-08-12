@@ -1,0 +1,736 @@
+/***************************************************************************************
+********************************************************************** The Responsive */
+
+@media all and (max-width:400px) {
+
+	.site-header .half:nth-child(1) {
+		width: 42% !important;
+	}
+
+	.site-header .half:nth-child(2) {
+		width: 58% !important;
+	}
+
+	#menu-ineo-menu li {
+		margin-left: 5px !important;
+	}
+
+}
+
+@media all and (max-width: 480px) {
+
+	/*.home .full .half .half {
+	width: 100% !important;
+	}*/
+
+	.site-footer .full .quarter {
+		width: 100% !important;
+	}
+
+	.contact .full .half.right .half {
+		width: 100% !important;
+	}
+
+	.people.text-column {
+		width: 50% !important;
+	}
+
+	.people.text-column:nth-child(2n) {
+		clear: left !important;
+	}
+
+	.left-span {
+		width: 30% !important
+	}
+
+	.right-span {
+		width: 70% !important;
+	}
+
+}
+
+@media all and (max-width: 560px) {
+
+	.single-clients .detail-half {
+		width: 100% !important;
+	}
+
+	.about .full .half.text-column:nth-child(2n) {
+		padding-top: 0 !important;
+	}
+
+	.about .full .half.text-column:nth-child(2n) h3 {
+		margin-top: 0 !important;
+	}
+
+	.home .optional, .hover-container .sub-text {
+		bottom: 20px !important;
+	}
+
+}
+
+
+@media all and (max-width: 600px) {
+	.site-footer .full .quarter {
+		width: 100% !important;
+	}
+
+	.bottom-position .half.right {
+		width: 100% !important;
+		padding: 0 20px !important;
+	}
+
+	.brand {
+		margin-left: 20px !important;
+	}
+
+	.menu-ineo-menu-container {
+		margin-right: 20px !important;
+	}
+
+	.home .site-footer .full .half .half, .archive .site-footer .full .half .half, .single-clients .site-footer .full .half .half {
+		width: 100% !important;
+	}
+
+	.about .full .half, .contact .full .half {
+		padding: 20px !important;
+	}
+
+	.site-footer .quarter {
+		padding: 0 20px !important;
+	}
+
+	#menu-ineo-menu li {
+		margin-left: 10px !important;
+	}
+
+	.home .full .half, .archive .full .half {
+		width: 100% !important;
+	}
+
+	/*.home .full .quarter {
+	width: 100% !important;
+	}*/
+
+	.home .full .half .half, .archive .full .half .half {
+		width: 50% !important;
+	}
+
+	.home .half .half.right, .archive .half .half.right {
+		width: 100% !important;
+	}
+
+	.tablet-pad {
+		padding: 20px !important;
+	}
+
+	.site-footer .full .quarter {
+		padding: 0 20px !important;
+	}
+
+	.site-footer .full:nth-child(2) .quarter {
+		padding: 20px !important;
+	}
+
+	.site-footer h3 {
+		margin-bottom: 15px !important;
+	}
+
+	.bottom-space {
+		margin-bottom: 0 !important;
+	}
+
+	body.about .full .half.change-padding, .contact .full .half.change-padding {
+		padding: 20px 20px 10px 20px !important;
+	}
+
+	.contact .full .half.right .half {
+		padding: 20px !important;
+	}
+
+	.single-case .half {
+		width: 100% !important;
+	}
+
+	.left-span {
+		width: 20% !important
+	}
+
+	.right-span {
+		width: 80% !important;
+	}
+
+	body.about .full .half.change-padding, body.contact .full .half.change-padding,
+	body.single-case .full .full .half.change-padding, body.single-clients .full .full .half.change-padding {
+		padding: 20px 20px 0 20px !important;
+	}
+
+	body.single-case .footer-wrapper > .half, body.single-case .footer-wrapper > .half .half, body.single-case .footer-wrapper.full > .half:first-child {
+		padding: 0!important;
+	}
+
+	body.about .full .half, body.contact .full .half, body.single-case .full.case-pad .half.text-block,
+	body.single-case .full .half {
+		padding: 20px !important;
+	}
+
+	.single-case .full .full .half.change-padding, .single-clients .full .full .half.change-padding {
+		padding: 20px 20px 0 20px !important;
+	}
+
+	.single-case .case-pad p, .single-clients .case-pad p, .contact .text-block p, .about .text-block p {
+		font-size: 20px !important;
+		line-height: 27px !important;
+	}
+
+	.bottom-position {
+		position: relative !important;
+		float: left !important;
+		display: block !important;
+		clear: both !important;
+		bottom: 0 !important;
+		padding: 20px 0;
+	}
+
+	.single-case .site-header .half {
+		width: 50% !important;
+	}
+
+	.dark-text h2,
+	.dark-text h1,
+	.dark-text h3,
+	.dark-text h4,
+	.dark-text p {
+		color: #534e46 !important;
+	}
+}
+
+
+@media all and (max-width: 650px) {
+	.home .half, .archive .half {
+		width: 100% !important;
+	}
+
+	.site-header .half {
+		width: 50% !important;
+	}
+
+	.alt-pad {
+		padding: 20px !important;
+	}
+
+	.home .site-footer .full .half .half, .archive .site-footer .full .half .half, .single-clients .site-footer .full .half .half, {
+		width: 100% !important;
+	}
+
+	body {
+		-webkit-text-size-adjust: none !important;
+	}
+
+	.home .hover-container, .archive .hover-container {
+		bottom: 0% !important;
+		background-color: rgba(255,255,255,0) !important;
+	}
+
+	.home .hover:hover .hover-container, .archive .hover:hover .hover-container {
+		bottom: 0 !important;
+	}
+
+	.big-pad h2, .big-pad h3 {
+		font-family: "Book";
+		font-size: 15px !important;
+		line-height: 21px !important;
+	}
+
+	.mobile-hide {
+		display: none;
+	}
+
+	.full.two-images > .half {
+		width: 100%;
+	}
+
+	.full.four-images .quarter {
+		width: 100%;
+	}
+}
+
+@media all and (max-width: 700px) {
+
+	.contact .full .half.right {
+		width: 100% !important;
+	}
+
+	/*.bottom-position .half.right {
+	width: 60% !important;
+	}*/
+
+	.home .full .quarter, .archive .full .quarter {
+		width: 50% !important;
+	}
+
+	.half.change-padding {
+		padding: 40px !important;
+	}
+
+	.home .site-footer .full .half .half, .archive .site-footer .full .half .half, .single-clients .site-footer .full .half .half {
+		width: 100% !important;
+	}
+
+	.single-case .case-pad p, .single-clients .case-pad p {
+		line-height: 27px !important;
+	}
+
+}
+
+@media all and (max-width: 768px) {
+	.footer-wrapper .half .half {
+		width: 100%;
+	}
+
+	.about .full .half {
+		width: 100% !important;
+		padding: 40px !important;
+	}
+
+	.about .full .half.right {
+		padding: 0 !important;
+	}
+
+	.top-bottom {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+	}
+
+	.half.change-padding {
+		padding: 40px 5%!important;
+	}
+
+	.half.change-padding .half.right {
+		padding: 0!important;
+	}
+
+	.half.text-block {
+		font-size: 20px !important;
+		line-height: 27px !important;
+		width: 100%!important;
+		padding: 0 5%!important;
+	}
+
+	.site-header {
+		width: 96% !important;
+	}
+
+	.site-header .half .half:nth-child(1) {
+		width: 100% !important;
+	}
+
+	.site-header .half .half:nth-child(2) {
+		width: 0 !important;
+		display: none;
+	}
+
+	.fill-screen .full.case-pad .half {
+		padding: 0 !important;
+	}
+
+	.wrapper {
+		width: 96% !important;
+	}
+
+	.contact .full .half {
+		width: 100% !important;
+		padding: 40px !important;
+	}
+
+	.contact .full .half .half.right {
+		padding: 0px 0 !important;
+	}
+
+	.hover:hover .hover-container {
+		bottom: 140% !important;
+	}
+
+	.tablet-pad {
+		padding: 40px !important;
+	}
+
+	.about .full .half.change-padding, .contact .full .half.change-padding,
+	.single-case .full .full .half.change-padding, .single-clients .full .full .half.change-padding {
+		padding: 40px 40px 0 40px !important;
+	}
+
+	body.contact .full .half .half {
+		width: 100% !important;
+		padding: 0 !important;
+	}
+
+	.contact .full .half.right {
+		padding: 0 !important;
+	}
+
+	.central-pad {
+		padding-bottom: 0 !important;
+	}
+
+	.contact .full .half.right {
+		width: 100% !important;
+	}
+
+
+	.people.text-column {
+		padding-right: 0px !important;
+	}
+
+	.full.case-pad .half {
+		width: 100% !important;
+		padding: 0px !important;
+	}
+
+	.case-pad {
+		padding-top: 0 !important;
+	}
+
+	.single-case .full.case-pad .half.text-block, .single-clients .full.case-pad .half.text-block {
+		padding: 0 40px !important;
+	}
+
+	.bottom-position .half.right {
+		float: left !important;
+		padding: 0 40px !important;
+	}
+	body.home .stacked-half .half .half, body.home .full .quarter, .archive .full .quarter,
+	body.archive .stacked-half .half .half {
+		width: 100% !important;
+	}
+
+	body .fill-screen .full.case-pad .half {
+		padding: 0!important;
+	}
+
+	.half .left-span, .half .right-span {
+		width: 100%!important;
+	}
+
+	.half .right-span {
+		margin-bottom: 16px;
+	}
+	.site-footer .full {
+		padding: 0!important;
+	}
+}
+
+@media all and (max-width: 830px) {
+
+	.big-pad {
+		padding: 20px 20px 0 20px !important;
+	}
+
+}
+
+@media all and (max-width: 900px) {
+
+	.site-footer .full .quarter {
+		width: 50% !important;
+		padding: 40px !important;
+	}
+
+	.site-footer .full .quarter:nth-child(1) {
+		width: 0 !important;
+		padding-right: 0 !important;
+		padding: 0 !important;
+	}
+
+	.fill-screen h1 {
+		margin-right: 30px;
+	}
+
+}
+
+@media all and (max-width: 1000px) {
+	.footer-wrapper .half {
+		width: 100%;
+	}
+
+	.footer-wrapper > .half:first-child{
+		padding: 0!important;
+		height: 0!important;
+	}
+
+	.site-footer .full .quarter {
+		width: 25% !important;
+	}
+
+	.alt-pad {
+		padding: 45px 30px 24px 30px !important;
+	}
+
+	.optional, .hover-container .sub-text {
+		bottom: 18px !important;
+	}
+
+	.fill-screen .full.case-pad .half {
+		width: 100% !important;
+		padding: 20px !important;
+	}
+
+	.case-pad {
+		padding-top: 0 !important;
+	}
+
+	.single-case .full.case-pad .half.text-block, .single-clients .full.case-pad .half.text-block {
+		padding: 0 40px !important;
+	}
+
+	.bottom-position .half.right {
+		float: left !important;
+		padding: 0 40px !important;
+		width: 100% !important;
+	}
+
+}
+
+@media all and (max-width: 1100px) {
+
+	.text-block {
+		padding-right: 10px !important;
+	}
+
+	.home .date, .home .optional {
+		display: block !important;
+	}
+
+	.home .half .half, .home .quarter, .archive .half .half, .archive .quarter,
+	.single-clients .half .half, .single-clients .quarter {
+		width: 50% !important;
+	}
+
+	.home .stacked-half .half, .archive .stacked-half .half,
+	.single-clients .stacked-half .half, .single-clients .stacked-half .half {
+		width: 100% !important;
+	}
+
+	.home .stacked-half .half .half, .archive .stacked-half .half .half,
+	.single-clients .stacked-half .half .half, .single-clients .stacked-half .half .half {
+		width: 50% !important;
+	}
+
+	.home .quarter-half .half .half, .archive .quarter-half .half .half {
+		width: 100% !important;
+	}
+
+	.site-footer .quarter:nth-child(1) {
+		width: 0 !important;
+		padding-right: 0 !important;
+		padding: 0 !important;
+	}
+
+	.site-footer .quarter {
+		padding: 10px !important;
+	}
+}
+
+@media all and (max-width: 1130px) {
+
+	.home .half.right, .archive .half.right,
+	.single-clients .half.right {
+		width: 100% !important;
+	}
+
+	.home .date, .home .optional {
+		display: none !important;
+	}
+
+	.site-footer .half {
+		padding-right: 0 !important;
+	}
+
+	.site-footer .half .half {
+		padding: 20px !important;
+	}
+
+}
+
+@media all and (max-width: 1200px) {
+
+	.left-span {
+		width: 25% !important
+	}
+
+	.right-span {
+		width: 75% !important;
+	}
+
+	.wrapper, .site-header {
+		width: 90% !important;
+	}
+
+}
+
+@media all and (max-width: 1280px) {
+
+	.site-footer .quarter {
+		padding-right: 40px !important;
+	}
+
+	.text-column {
+		width: 100% !important;
+	}
+
+	.contact .full .half .half {
+		width: 50% !important;
+	}
+
+}
+
+@media all and (max-width: 1340px) {
+
+	.alt-pad {
+		padding: 20px !important;
+	}
+
+	.big-pad .sub-text {
+		bottom: 18px !important;
+	}
+
+}
+
+@media all and (max-width: 1400px) {
+
+	.alt-pad h2, .big-pad h2, .alt-pad h3, .big-pad h3 {
+		width: 70% !important;
+	}
+
+}
+
+@media all and (max-width: 1500px) {
+
+	.text-block {
+		padding-right: 140px!important;
+	}
+
+	.single-case h1, .single-clients h1 {
+		margin-right: 20px;
+	}
+
+}
+
+@media all and (max-width: 1800px) {
+
+	.site-footer .half .half {
+		padding-right: 60px!important;
+	}
+
+}
+
+/***************************************************************************************
+********************************************************************* iPad Responsive */
+
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+	.hover:hover .hover-container {
+		bottom: 140% !important;
+	}
+
+	.home .half .half.right, .home .full .half, .archive .half .half.right, .archive .full .half {
+		width: 50% !important;
+	}
+
+	.home .full .half .half, .archive .full .half .half {
+		width: 50% !important;
+	}
+
+	.home .full .quarter, .archive .full .quarter {
+		width: 50% !important;
+	}
+
+	.home .stacked-half .half, .archive .stacked-half .half {
+		width: 100% !important;
+	}
+
+	.home .quarter-half .half .half, .archive .quarter-half .half .half {
+		width: 100% !important;
+	}
+
+	.fill-screen {
+		min-height: 600px !important;
+	}
+
+	.site-footer .full .quarter:nth-child(1) {
+		width: 0 !important;
+		padding-right: 0 !important;
+		padding: 0 !important;
+	}
+
+	.site-footer .full .quarter {
+		width: 50% !important;
+		padding: 0 40px !important;
+	}
+
+	.site-footer h3 {
+		margin-bottom: 15px !important;
+	}
+
+	.site-footer .full:nth-child(2) .quarter {
+		margin-bottom: 20px !important;
+	}
+
+	.footer-wrapper .full .half {
+		width: 100% !important;
+	}
+
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+	.hover:hover .hover-container {
+		bottom: 140% !important;
+	}
+
+	.home .half .half.right, .home .full .half, .archive .half .half.right, .archive .full .half {
+		width: 50% !important;
+	}
+
+	.home .full .half .half, .archive .full .half .half {
+		width: 50% !important;
+	}
+
+	.home .full .quarter, .archive .full .quarter {
+		width: 50% !important;
+	}
+
+	.home .stacked-half .half, .archive .stacked-half .half {
+		width: 100% !important;
+	}
+
+	.home .quarter-half .half .half, .archive .quarter-half .half .half {
+		width: 100% !important;
+	}
+
+	.site-footer .full .quarter:nth-child(1) {
+		width: 0 !important;
+		padding-right: 0 !important;
+		padding: 0 !important;
+	}
+
+	.site-footer .full .quarter {
+		width: 50% !important;
+		padding: 0 40px !important;
+	}
+
+	.site-footer h3 {
+		margin-bottom: 15px !important;
+	}
+
+	.site-footer .full:nth-child(2) .quarter {
+		margin-bottom: 20px !important;
+	}
+
+	.footer-wrapper .full .half {
+		width: 100% !important;
+	}
+
+}

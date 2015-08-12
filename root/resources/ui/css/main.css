@@ -76,3 +76,121 @@ h1 {
 	height: auto;
 }
 
+
+
+
+
+/* x */
+
+
+
+
+
+
+/***************************************************************************************
+************************************************************************** The Basics */
+
+@import 'resources/ui/css/responsive.css';
+
+
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+div, article, section, header, footer, nav, li {
+	position: relative;
+}
+
+html, body {
+	height: 100%;
+	max-height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	background: #ebebeb;
+	font-family: "Light";
+	color: #534e46;
+}
+
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+::-moz-selection {
+	background: #1a79de;
+	color: #ffffff;
+}
+
+::selection {
+	background: #1a79de;
+	color: #ffffff;
+}
+
+img {
+	width: 100%;
+	height: auto;
+	float: left;
+	border: none;
+	outline: none;
+}
+
+::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder {
+	color: #534e4b;
+	font-size: 15px;
+	font-family: "Light";
+	-webkit-font-smoothing: antialiased;
+}
+
+.smooth {
+	-webkit-font-smoothing: antialiased;
+}
+
+
+
+
+
+
+
+
+
+.wrapper {
+	width: 90%;
+	max-width: 1800px;
+	height: auto;
+	margin: 0 auto;
+	opacity: 0;
+	margin-top: 75px;
+}
+
+.full {
+	width: 100%;
+	height: auto;
+	float: left;
+	background: #d5d4d1;
+}
+
+.half {
+	width: 50%;
+	height: auto;
+	float: left;
+}
+
+.quarter {
+	width: 25%;
+	height: auto;
+	float: left;
+}
+
+.third {
+	width: 33.33%;
+	height: auto;
+	float: left;
+}
