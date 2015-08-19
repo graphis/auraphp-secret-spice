@@ -253,7 +253,10 @@ class Application extends Core
 		// 03 else process params and get the slug based on the route segment
 		
 		// 01 if there is no route, make an error 404 for this case
+
+		
 		if (!$this->route) {
+			// $this->setup_views();
 			echo 'no route !';
 			$this->debug->page($this->path);
 			$this->error('404');

@@ -105,6 +105,14 @@ class Core
 			$layout   = Arr::path($views, 'views.layout');
 			$error    = Arr::path($views, 'views.error');
 
+			//
+			//
+//			echo 'XXX XXX XXX ';
+// 			print_r($error);
+//			echo ' ZZZ XXX XXX XXX ';
+			//
+			//
+
 			$partials = Arr::path($views, 'views.partials');
 
 			// 01 
@@ -112,7 +120,7 @@ class Core
 			$layout_registry->set('layout', APPPATH . $folder . DIRECTORY_SEPARATOR . $layout);
 
 			// error template
-			$layout_registry->set('error', APPPATH . $folder . DIRECTORY_SEPARATOR . $error);
+			$layout_registry->set('error',  APPPATH . $folder . DIRECTORY_SEPARATOR . $error);
 
 			// 02
 			// sub templates
@@ -146,10 +154,10 @@ class Core
 
 		// error template
 
-	//	$this->setup_views();
-		// $this->view->setLayout( 'error' );
-	//	echo $this->view->__invoke();
-		// exit();
+//		$this->setup_views();
+//		$this->view->setLayout( 'error' );
+//		echo $this->view->__invoke();
+//		exit('as');
 	}
 
 
