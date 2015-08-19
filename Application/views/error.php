@@ -8,12 +8,12 @@
 <body>
 
 
-
+<hr/>
 error 404
-
+<hr/>
 
 	
-	
+
 </body>
 
 </html>
