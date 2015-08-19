@@ -10,6 +10,10 @@
 	<!-- site specific css -->
 	<link rel="stylesheet" type="text/css" href="resources/ui/css/main.css" />
 
+	<!-- css with php -->
+	<link rel='stylesheet' type='text/css' href='resources/ui/css/main.php' />
+	
+
 
 
 	<!-- global js
