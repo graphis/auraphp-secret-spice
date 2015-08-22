@@ -78,7 +78,7 @@ class Application extends Core
 		} catch(\Lazer\Classes\LazerException $e) {
 			Lazer::create('pages', array(
 			    'id'    => 'integer',
-				'slug'    => 'string',
+				'slug'  => 'string',
 			    'title' => 'string',
 				'body'  => 'string'
 		));
@@ -177,13 +177,13 @@ class Application extends Core
 
 
 	/**
-	 * Render and add data to partial 
+	 * Assing data to views
 	 * @param Closure $callback Closure Callback to be executed
 	 * @return void
 	 */
 	public function dynamic_view()
 	{
-
+		// get the data from the database
 		$table = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
 
 		$items = array();
@@ -264,10 +264,9 @@ class Application extends Core
 		}
 
 		// 02 if request is pjax // currenty handled in render_view function
-//		if($this->is_pjax()){}
-
+		// if($this->is_pjax()){}
 		// 03 check for routes
-//		if ($this->route) {
+		// if ($this->route) {
 		else {
 
 
@@ -278,26 +277,26 @@ class Application extends Core
 			if (isset($this->route->params['pjaxpages'])) {
 
 				// take the static page directly from the route and trim the trailing slash from the parameter
-				$this->slug =  ltrim ( $this->route->params['pjaxpages'], '/' );
+				$this->slug = ltrim ( $this->route->params['pjaxpages'], '/' );
 
 			// default slug if none is set
 			// root path, since we can not map / to a view
-//			} if ( $this->slug === ''  ) {
-			} if (empty($this->slug ) ) {
+			} if (empty($this->slug ) OR $this->slug === '' ) {
 				$this->slug = 'index';
-				// $thispage = $this->dynamic_view();
 			} 
-			//else {
-			//	$this->slug = 'index';
-			//}
+
+
+
+
+			// static page is set, call render view, which includes the static view, othervise get the data from the db
+			if ( isset($this->route->params['static_pages'] ) ) {
+				$this->render_view();
+			} else {
+				$this->dynamic_view();
+			}
 		}
 
-		// static page is set, call render view, which includes the static view, othervise get the data from the db
-		if ( isset($this->route->params['static_pages'] ) ) {
-			$this->render_view();
-		} else {
-			$this->dynamic_view();
-		}
+
 
 		//
 		$this->finish();
