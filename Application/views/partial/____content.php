@@ -1,3 +1,7 @@
+<div>
+
+<pre>
+
 <div class="full case-pad">
 
 	<div class="half change-padding">
@@ -77,7 +81,8 @@ echo '<br/>';
 
 
 ?>
-</div>
 
 
 </pre>
+</div>
+
