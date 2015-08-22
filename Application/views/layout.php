@@ -35,8 +35,6 @@
 	<script src="resources/ui/js/pjax/jquery.cookie.js"></script>
 	<script src="resources/ui/js/pjax/jquery.pjax.js"></script>
 
-	<!--<script src="pjaxtest/js/jquery.pjax.js"></script>-->
-
 	<style>
 
 		#main {
