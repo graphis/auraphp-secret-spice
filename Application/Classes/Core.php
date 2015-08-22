@@ -58,19 +58,18 @@ class Core
 	/**
 	 * get routes
 	 *
+	 * Routes are defined in application/config/routes.php
 	 * @return Aura\Router\Map
 	 */
 	public function getRoutes()
 	{
-		// echo '_____________________________' . __FUNCTION__ . '<br/>';
-
-		// Routes are defined in application/config/routes.php
+		// Check if file exists
 		if (file_exists(APPPATH . self::ROUTERMAP)) {
-			// Let the app specify it's own routes.
 			include_once(APPPATH . self::ROUTERMAP);
 		} else {
 
 			// Fall back on some sensible defaults.
+
 			// /
 			$this->router->add(null, '/');
 		}
