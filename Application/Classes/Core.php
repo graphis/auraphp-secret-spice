@@ -21,6 +21,7 @@ use Aura\View\View;
 
 // Application utils
 use Application\Helper\Arr;
+// use Dotor\Loader as ArrayLoader;
 // use Application\Helper\Debug;
 
 
@@ -94,6 +95,14 @@ class Core
 		$view_registry = $this->view->getViewRegistry();
 
 		// config file
+		// dotor
+		$loader = \Dotor\Loader\ArrayLoader::createFromFile(APPPATH . 'configuration/views.php');
+		$config = new \Dotor\Loader\Dotor($loader);
+		echo $config->get('views.path');
+		die('test');
+
+
+
 		$views = include APPPATH . 'configuration/views.php';
 
 		if (is_array($views))

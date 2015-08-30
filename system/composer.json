@@ -3,6 +3,7 @@
 		"aura/router": "^2.2",
 		"aura/autoload": "^2.0",
 		"aura/view": "^2.1",
-		"greg0/lazer-database": "^1.0"
+		"greg0/lazer-database": "^1.0",
+		"pklink/dotor": "1.*"
 	}
 }
