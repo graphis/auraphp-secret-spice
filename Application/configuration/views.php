@@ -6,26 +6,26 @@
 
 // views
 return [
-    'views' => [
+	'views' => [
 
-        'path' => 'views',					// in application / views /
+		'path' => 'views',							// in application / views /
 
-		'layout' => 'layout.php',			// main layout file
-		'error'  => 'error.php',			// main layout file
+		'layout' => 'layout.php',					// main layout file
+		'error'  => 'error.php',					// main layout file
 
-	        'partials' => [					// partial views
+		'partials' => [								// partial views
+													// static views
+			'index'  => 'partial/_index.php',
+			'974'    => 'partial/_974.php',
+			'zsele'  => 'partial/_zsele.php',
+			'work'   => 'partial/_work.php',
 
-            	'index'  => 'partial/_index.php',	// static view
-				'974'    => 'partial/_974.php',		// static view
-				'zsele'  => 'partial/_zsele.php',	// static view
-				'work'   => 'partial/_work.php',	// static view
+			'content' => 'partial/____content.php'	// dynamic view for data from db
 
-				'content' => 'partial/____content.php' // used for content from database
+			]
 
-        ]
-
-    ]
-];
+		]
+	];
 
 
 

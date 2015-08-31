@@ -19,9 +19,13 @@ namespace Application;
 use Aura\Router\RouterFactory;
 use Aura\View\View;
 
+use Dotor\Loader\ArrayLoader;
+use Dotor\Dotor;
+
 // Application utils
 use Application\Helper\Arr;
-// use Dotor\Loader as ArrayLoader;
+
+
 // use Application\Helper\Debug;
 
 
@@ -96,10 +100,14 @@ class Core
 
 		// config file
 		// dotor
-		$loader = \Dotor\Loader\ArrayLoader::createFromFile(APPPATH . 'configuration/views.php');
-		$config = new \Dotor\Loader\Dotor($loader);
-		echo $config->get('views.path');
-		die('test');
+		// the config file to load
+		$loader = ArrayLoader::createFromFile(APPPATH . 'configuration/views.php');		
+		$config = new Dotor($loader);
+		echo $config->get('views.path') . '<br/>';
+		echo $config->get('views.layout') . '<br/>';
+		echo $config->get('views.error') . '<br/>';
+		echo $config->get('views.partials.index') . '<br/>';
+		//die('test');
 
 
 
