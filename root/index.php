@@ -15,7 +15,7 @@
 /**
  * Relative path to the application directory.
  */
-$application = '../application/';
+$application = '../Application/';
 
 /**
  * Relative path to the framework core.
