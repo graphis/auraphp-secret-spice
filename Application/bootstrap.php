@@ -1,13 +1,8 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 /**
  *
- * This file is part of my_application.
- * application/bootstrap.php is responsible to load application routes and classes, then handle all to application/classes/micro.class
- *
- * @package my_application
- * @version    1.7
- * @license http://opensource.org/licenses/bsd-license.php BSD
- * @copyright  2015 Zsolt Sándor
+ * Bootstrap file. Including this file into your application will protect you from evil
+ * and bring good luck.  It will also enable access to the skeleton libraries.
  *
  */
 
@@ -20,7 +15,7 @@ use Aura\Autoload\Loader;
 $loader = new \Aura\Autoload\Loader;
 // append to the SPL autoloader stack; use register(true) to prepend instead
 $loader->register();
-$loader->addPrefix('Application', '../application/classes');
+$loader->addPrefix('Application', APPPATH . 'classes');
 
 
 
