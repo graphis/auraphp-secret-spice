@@ -6,7 +6,7 @@
  * then handle all to application/classes/micro.class
  *
  * @package my_application
- * @version	1.7
+ * @version	1.1
  * @license http://opensource.org/licenses/bsd-license.php BSD
  * @copyright 2015 Zsolt Sándor
  *
@@ -14,19 +14,12 @@
 
 namespace Application;
 
-
 // vendor classes
 use Aura\Router\RouterFactory;
 use Aura\View\View;
 
-use Dotor\Loader\ArrayLoader;
-use Dotor\Dotor;
-
 // Application utils
 use Application\Helper\Arr;
-
-
-// use Application\Helper\Debug;
 
 
 
@@ -42,23 +35,23 @@ use Application\Helper\Arr;
 class Core
 {
 
-
+	//
 	const ROUTERMAP = 'configuration/routes.php';
 
-
+	/**
+	 * construct
+	 * @param
+	 * @return void
+	 */
 	public function __construct()
 	{
-
 		// initiate router
 		$this->router_factory = new RouterFactory;
 		$this->router = $this->router_factory->newInstance();
 
 		// get the routes
 		$this->getRoutes();
-
 	}
-
-
 
 	/**
 	 * get routes
@@ -68,27 +61,19 @@ class Core
 	 */
 	public function getRoutes()
 	{
-		// Check if file exists
 		if (file_exists(APPPATH . self::ROUTERMAP)) {
 			include_once(APPPATH . self::ROUTERMAP);
 		} else {
-
 			// Fall back on some sensible defaults.
-
-			// /
 			$this->router->add(null, '/');
 		}
-
 	}
-
-
 
 	/**
 	 * setting up views and registering them
 	 */
 	public function setup_views()
 	{
-	
 		/////////////////// view
 		// initiate views
 		$view_factory = new \Aura\View\ViewFactory;
@@ -101,55 +86,37 @@ class Core
 		// config file
 		// dotor
 		// the config file to load
-		$loader = ArrayLoader::createFromFile(APPPATH . 'configuration/views.php');		
-		$config = new Dotor($loader);
-		echo $config->get('views.path') . '<br/>';
-		echo $config->get('views.layout') . '<br/>';
-		echo $config->get('views.error') . '<br/>';
-		echo $config->get('views.partials.index') . '<br/>';
+//		$loader = ArrayLoader::createFromFile(APPPATH . 'configuration/views.php');		
+//		$config = new Dotor($loader);
+//		echo $config->get('views.path') . '<br/>';
+//		echo $config->get('views.layout') . '<br/>';
+//		echo $config->get('views.error') . '<br/>';
+//		echo $config->get('views.partials.index') . '<br/>';
 		//die('test');
-
-
 
 		$views = include APPPATH . 'configuration/views.php';
 
 		if (is_array($views))
 		{
-			// 00
-			// vars
+			// 00 vars
 			$folder   = Arr::path($views, 'views.path');
 			$layout   = Arr::path($views, 'views.layout');
 			$error    = Arr::path($views, 'views.error');
-
-			//
-			//
-//			echo 'XXX XXX XXX ';
-// 			print_r($error);
-//			echo ' ZZZ XXX XXX XXX ';
-			//
-			//
-
 			$partials = Arr::path($views, 'views.partials');
 
-			// 01 
-			// main template
+			// 01 main template
 			$layout_registry->set('layout', APPPATH . $folder . DIRECTORY_SEPARATOR . $layout);
 
 			// error template
 			$layout_registry->set('error',  APPPATH . $folder . DIRECTORY_SEPARATOR . $error);
 
-			// 02
-			// sub templates
+			// 02 sub templates
 			foreach ($partials as $key => $value)
 		    {
 				$view_registry->set( $key,  APPPATH . $folder . DIRECTORY_SEPARATOR . $value );
 			}
 		}
-		// OK
-	
 	}
-
-
 
 	/**
 	 * route not found -- 404 error
@@ -167,35 +134,26 @@ class Core
 		echo $this->path;
 		echo $title . ' Sorry, page is not there -- '. $code;
 
-
 		// error template
-
-//		$this->setup_views();
-//		$this->view->setLayout( 'error' );
-//		echo $this->view->__invoke();
-//		exit('as');
+		// $this->setup_views();
+		// $this->view->setLayout( 'error' );
+		// echo $this->view->__invoke();
+		// exit('as');
 	}
 
-
-
 	/**
-	 * Checks if pjax is setting
+	 * Checks if pjax is set
 	 * @param Closure $callback Closure Callback to be executed
 	 * @return void
 	 */
-	function is_pjax()
+	public static function is_pjax()
 	{
-		// echo '_____________________________' . __FUNCTION__ . '<br/>';
-
-		// if( isset( $_SERVER['HTTP_X_PJAX'] ) && strtolower( $_SERVER['HTTP_X_PJAX'] ) == 'true' ) {
+		// if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
 		if(isset($_SERVER['HTTP_X_PJAX']) && $_SERVER['HTTP_X_PJAX'] == 'true')
 		{
 			return TRUE;
 		}
 		return FALSE;
 	}
-
-
-
 
 }
