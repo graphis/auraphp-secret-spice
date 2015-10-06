@@ -1,13 +1,7 @@
 <?php defined('SYSPATH') or die('No direct script access.');
-/**
+/*
  *
- * This file is part of my_application.
- * application/bootstrap.php is responsible to load application routes and classes, then handle all to application/classes/micro.class
- *
- * @package my_application
- * @version    1.7
- * @license http://opensource.org/licenses/bsd-license.php BSD
- * @copyright  2015 Zsolt Sándor
+ * define routes here
  *
  */
 
@@ -42,7 +36,6 @@ $this->router->add('pjax', '{pjaxpages}')
  	->addTokens(array(
  		'pjaxpages' => '/|/zsele|/974|/zorro' //   work OR play OR dream
  	));
-
 
 
  // catch all route

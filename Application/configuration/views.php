@@ -1,8 +1,5 @@
 <?php defined('SYSPATH') or die('No direct script access.');
-// old vs new arrays
-// http://php.net/manual/en/language.types.array.php
-
-
+// old vs new arrays http://php.net/manual/en/language.types.array.php
 
 // views
 return [
@@ -27,8 +24,4 @@ return [
 		]
 	];
 
-
-
-
-
-
+// eof

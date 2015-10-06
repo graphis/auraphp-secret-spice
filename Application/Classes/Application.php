@@ -17,9 +17,7 @@ namespace Application;
 
 
 use Application\Helper\Debug;
-use Application\Helper\xml;
 use Application\Helper\Arr;
-use Application\Helper\ScriptTime;
 
 use Application\Constants;
 
@@ -47,18 +45,15 @@ class Application extends Core
 	 */
 	public function __construct()
 	{
+		// routes
+		// parent::__construct(APPPATH . 'configuration/routes.php');
+
 		define('LAZER_DATA_PATH', APPPATH .'database/'); //Path to folder with tables
 
 		parent::__construct();
 
 		// setting up debug stuff
 		$this->debug = new Debug();
-		$this->time = new ScriptTime();
-		$this->time->start();
-		
-		// $this->before();
-		// $this->debug->console('hi from the debug class to console');
-		// $this->debug->page('hi from the debug class to page');
 
 	}
 
@@ -106,12 +101,6 @@ class Application extends Core
 //		$row = Lazer::table('pages')->find(1);
 //		print_r($row);
 
-
-
-
-		// var_dump($xml->data);
-
-
 /*
 		$row = Lazer::table('pages');
 
@@ -142,9 +131,6 @@ class Application extends Core
 //			print_r($row);
 //		}
 
-
-
-//		echo '</pre>_____________________________ _<br/>';
 	}
 
 	/**
@@ -155,31 +141,26 @@ class Application extends Core
 	public function render_view()
 	{
 		// setup views in Core.php
-		$this->setup_views();
+		$this->register_views();
 
-		// set data
+		// set data // demo // call model here instead
 		$this->view->setData(array('name' => 'Auraphp-secret-spice -- data from application.php'));
 
 		// check for ajax request
 		if ( $this->is_pjax() )
 		{
-			// We have ajax request here
-			// 01 set partial view based on slug
+			// this is an ajax request so set partial view based on slug
 			$this->view->setView( $this->slug );
-
 		} else {
-
-			// We have regular http request for a page
-			// 01 set partial view based on slug, and 02  set the view layout
+			// regular http request for a page
+			// set partial view based on slug
 			$this->view->setView( $this->slug  );
+			// and set the view layout
 			$this->view->setLayout( 'layout' );
 		}
 
-		//
 		echo $this->view->__invoke();
 	}
-
-
 
 	/**
 	 * Assing data to views
@@ -205,7 +186,7 @@ class Application extends Core
 		}
 
 		// setup views in Core.php
-		$this->setup_views();
+		$this->register_views();
 
 		$this->view->setData(array(
 		    'items' => $items
@@ -230,11 +211,6 @@ class Application extends Core
 		echo $this->view->__invoke();
 	}
 
-
-
-
-
-
 	/**
 	 * Run the application:
 	 * Check routes an execute the dispatch process
@@ -250,15 +226,13 @@ class Application extends Core
 		// get the route based on the url and server
 		$this->route = $this->router->match($this->path, $_SERVER);
 
-
-
-		// 01 if no route exists then 404 error
-		// 02 if request is ajax // not used currently as 03 else does not get executed
-		   // use only if processing ajax requests requires other logic as normal requests
-		// 03 else process params and get the slug based on the route segment
-		
-		// 01 if there is no route, make an error 404 for this case
-
+		/*
+		 * 01 if no route exists then 404 error
+		 * 02 if request is ajax // not used currently as 03 else does not get executed
+		 * use only if processing ajax requests requires other logic as normal requests
+		 * 03 else process params and get the slug based on the route segment
+		 * 01 if there is no route, make an error 404 for this case
+		 */
 		
 		if (!$this->route) {
 			// $this->setup_views();
@@ -274,7 +248,6 @@ class Application extends Core
 		// if ($this->route) {
 		else {
 
-
 			// there is a route, now get the params
 			$params = $this->route->params;
 
@@ -284,16 +257,18 @@ class Application extends Core
 				// take the static page directly from the route and trim the trailing slash from the parameter
 				$this->slug = ltrim ( $this->route->params['pjaxpages'], '/' );
 
-			// default slug if none is set
-			// root path, since we can not map / to a view
-			} if (empty($this->slug ) OR $this->slug === '' ) {
+			}
+			/*
+			 * default slug if none is set
+			 * root path, since we can not map / to a view
+			 */
+			if (empty($this->slug ) OR $this->slug === '' ) {
 				$this->slug = 'index';
-			} 
-
-
-
-
-			// static page is set, call render view, which includes the static view, othervise get the data from the db
+			}
+			/*
+			 * static page is set, call render view, which includes the static view, 
+			 * othervise get the data from the db
+			 */
 			if ( isset($this->route->params['static_pages'] ) ) {
 				$this->render_view();
 			} else {
@@ -301,32 +276,17 @@ class Application extends Core
 			}
 		}
 
-
-
-		//
 		$this->finish();
 	}
 
-
-
+	//
 	public function __destruct()
 	{
-		$this->time->stop();
-		print_r( $this->time->getTime() );
-		
 		echo '<hr>';
-
-
 		$const = new Constants();
 		$const = Constants::Monday ;
-
 		print_r($const);
-
-
-
 	}
-
-
 
 }
 

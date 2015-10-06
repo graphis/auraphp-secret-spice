@@ -14,13 +14,10 @@
 
 namespace Application;
 
-// vendor classes
 use Aura\Router\RouterFactory;
 use Aura\View\View;
-
-// Application utils
 use Application\Helper\Arr;
-
+use Application\Exception;
 
 
 /**
@@ -44,10 +41,6 @@ class Core
 	 */
 	public function __construct()
 	{
-		// initiate router
-		$this->router_factory = new RouterFactory;
-		$this->router = $this->router_factory->newInstance();
-
 		// get the routes
 		$this->getRoutes();
 	}
@@ -60,10 +53,15 @@ class Core
 	 */
 	public function getRoutes()
 	{
+		// initiate router
+		$this->router_factory = new RouterFactory;
+		$this->router = $this->router_factory->newInstance();
+
 		if (file_exists(APPPATH . self::ROUTERMAP)) {
 			include_once(APPPATH . self::ROUTERMAP);
 		} else {
 			// Fall back on some sensible defaults.
+			throw new Exception('No routes defined');
 			$this->router->add(null, '/');
 		}
 	}
@@ -71,7 +69,7 @@ class Core
 	/**
 	 * setting up views and registering them
 	 */
-	public function setup_views()
+	public function register_views()
 	{
 		/////////////////// view
 		// initiate views
@@ -82,17 +80,7 @@ class Core
 		$layout_registry = $this->view->getLayoutRegistry();
 		$view_registry = $this->view->getViewRegistry();
 
-		// config file
-		// dotor
-		// the config file to load
-//		$loader = ArrayLoader::createFromFile(APPPATH . 'configuration/views.php');		
-//		$config = new Dotor($loader);
-//		echo $config->get('views.path') . '<br/>';
-//		echo $config->get('views.layout') . '<br/>';
-//		echo $config->get('views.error') . '<br/>';
-//		echo $config->get('views.partials.index') . '<br/>';
-		//die('test');
-
+		// views config file
 		$views = include APPPATH . 'configuration/views.php';
 
 		if (is_array($views))
@@ -141,9 +129,8 @@ class Core
 	}
 
 	/**
-	 * Checks if pjax is set
-	 * @param Closure $callback Closure Callback to be executed
-	 * @return void
+	 * Checks for ajax request
+	 * @return bool
 	 */
 	public static function is_pjax()
 	{

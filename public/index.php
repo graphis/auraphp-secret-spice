@@ -82,8 +82,6 @@ define('SYSPATH', realpath($system).DIRECTORY_SEPARATOR);
 // Clean up the configuration vars
 unset($application, $system);
 
-
-
 // Kickstart
 // $loader = require SYSPATH.'vendor/autoload.php';
 require SYSPATH.'vendor/autoload.php';
@@ -91,23 +89,18 @@ require SYSPATH.'vendor/autoload.php';
 // load classes also from application/Classes
 // $loader->add('Application\\', APPPATH.'classes');
 
-
 // Start the Application
 require APPPATH.'bootstrap.php';
-
-
 
 /**
  * Profile
  */
-if(defined('APP_PROFILE'))
-{
-	echo '<hr/>';
-	print_r('time     : '.round(microtime(true)-APP_START_TIME, 4).'<br/>');
-	print_r('mem      : '.round((memory_get_usage()-APP_START_MEM)/1024/1024, 4).'<br/>');
-	print_r('mem peak : '.round((memory_get_peak_usage()-APP_START_MEM)/1024/1024, 4).'<br/>');
-}
-
-
+// if(defined('APP_PROFILE'))
+// {
+//	echo '<hr/>';
+//	print_r('time     : '.round(microtime(true)-APP_START_TIME, 4).'<br/>');
+//	print_r('mem      : '.round((memory_get_usage()-APP_START_MEM)/1024/1024, 4).'<br/>');
+//	print_r('mem peak : '.round((memory_get_peak_usage()-APP_START_MEM)/1024/1024, 4).'<br/>');
+// }
 
 // eof

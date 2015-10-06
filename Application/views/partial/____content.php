@@ -6,12 +6,12 @@
 
 	<div class="half change-padding">
 		<div class="half right">
-			<h1 class="smooth"><?php echo $this->items['title']; ?></h1>
+			<h1 class="smooth"><?php // echo $this->items['title']; ?></h1>
 		</div>
 	</div>
 
 	<div class="half text-block">
-		<p class="smooth"><?php echo $this->items['body']; ?></p>
+		<p class="smooth"><?php // echo $this->items['body']; ?></p>
 	</div>
 
 </div>
@@ -62,21 +62,7 @@ echo '<br/>';
 
 //if (defined( (string)$this->items['slug'] )) {
    
-   //}
-
-
-//print_r( $this );
-
-// print_r( $this->stack );
-// echo '<br/>';
-// print_r( $this->id );
-// echo '<br/>';
-// print_r( $this->title );
-// echo '<br/>';
-// print_r( $this->body );
-// echo '<br/>';
-// print_r( $this->slug );
-// echo '<br/>';
+//}
 
 
 

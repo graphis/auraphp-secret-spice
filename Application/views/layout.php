@@ -106,17 +106,6 @@
 
 <footer>
 <!-- profile -->
-<?php
-// profile
-$time_end = microtime(true);
-$time = $time_end - APP_START_TIME;
-echo "<br/><br/><br/>Page rendered in $time seconds<br/>";
-echo 'memory: ' . number_format((memory_get_peak_usage() - BASE_MEMORY_USAGE) / 1024, 4).'kb';
-
-
-
-?>
-
 
 <p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
 
@@ -124,8 +113,6 @@ echo 'memory: ' . number_format((memory_get_peak_usage() - BASE_MEMORY_USAGE) / 
 	Ámor Intercity indul az egyes vágyányról. <br/>
 	A szemétkocsik ajtaját kérjük csukják be!<br/>
 </p>
-
-
 
 </footer>
 
@@ -155,6 +142,16 @@ else window.onload = autorun;
 </div>
 
 
-
+<?php
+echo '<div id="profile">';
+if(defined('APP_PROFILE'))
+{
+	echo '<hr/>';
+	print_r('time     : '.round(microtime(true)-APP_START_TIME, 4).'<br/>');
+	print_r('mem      : '.round((memory_get_usage()-APP_START_MEM)/1024/1024, 4).'<br/>');
+	print_r('mem peak : '.round((memory_get_peak_usage()-APP_START_MEM)/1024/1024, 4).'<br/>');
+}
+echo '</div>';
+?>
 </body>
 </html>
