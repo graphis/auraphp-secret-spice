@@ -6,17 +6,24 @@
  * then handle all to application/classes/micro.class
  *
  * @package my_application
- * @version	1.7
+ * @version	1.1
  * @license http://opensource.org/licenses/bsd-license.php BSD
  * @copyright 2015 Zsolt Sándor
  *
  */
 
+
+
 namespace Application\Helper;
 
 
 
-
+/**
+ *
+ * Debug class
+ * logs to console, or to the browser page
+ *
+ */
 class Debug
 {
 
@@ -32,7 +39,9 @@ class Debug
 		}
 	}
 	
-	// utility function
+	/**
+	 * Send debug code to the browser page
+	 */ 
 	public function page($data)
 	{
 		echo '<br/>';
@@ -41,11 +50,7 @@ class Debug
 		echo '</code></pre>';
 		echo '<br/>';
 	}
-	
-	
-	
+
 }
 
-
-
-// eof Micro.php
+//
