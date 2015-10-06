@@ -6,7 +6,7 @@
  * then handle all to application/classes/micro.class
  *
  * @package my_application
- * @version	1.7
+ * @version	1.1
  * @license http://opensource.org/licenses/bsd-license.php BSD
  * @copyright 2015 Zsolt Sándor
  *
@@ -19,6 +19,9 @@ namespace Application;
 use Application\Helper\Debug;
 use Application\Helper\xml;
 use Application\Helper\Arr;
+use Application\Helper\ScriptTime;
+
+use Application\Constants;
 
 use Lazer\Classes\Database as Lazer;
 
@@ -50,6 +53,8 @@ class Application extends Core
 
 		// setting up debug stuff
 		$this->debug = new Debug();
+		$this->time = new ScriptTime();
+		$this->time->start();
 		
 		// $this->before();
 		// $this->debug->console('hi from the debug class to console');
@@ -301,6 +306,26 @@ class Application extends Core
 		//
 		$this->finish();
 	}
+
+
+
+	public function __destruct()
+	{
+		$this->time->stop();
+		print_r( $this->time->getTime() );
+		
+		echo '<hr>';
+
+
+		$const = new Constants();
+		$const = Constants::Monday ;
+
+		print_r($const);
+
+
+
+	}
+
 
 
 }
