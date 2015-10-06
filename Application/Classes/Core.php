@@ -26,10 +26,9 @@ use Application\Helper\Arr;
 /**
  *
  * @package Auraphp-secret-spice
- *
  * @license http://opensource.org/licenses/MIT MIT
  *
- * A microframework wrapper for Aura.Router based off of the Silex api
+ * Core utils
  *
  */
 class Core
