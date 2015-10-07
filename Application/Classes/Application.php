@@ -2,10 +2,11 @@
 /**
  *
  * This file is part of my_application.
+ *
  * application/bootstrap.php is responsible to load application routes and classes, 
  * then handle all to application/classes/micro.class
  *
- * @package my_application
+ * @package Auraphp-secret-spice
  * @version	1.1
  * @license http://opensource.org/licenses/bsd-license.php BSD
  * @copyright 2015 Zsolt Sándor
@@ -18,20 +19,13 @@ namespace Application;
 
 use Application\Helper\Debug;
 use Application\Helper\Arr;
-
 use Application\Constants;
-
-use Lazer\Classes\Database as Lazer;
 
 
 
 /**
  *
- * @package Auraphp-secret-spice
- *
- * @license http://opensource.org/licenses/MIT MIT
- *
- * A microframework wrapper for Aura.Router based off of the Silex api
+ * A microframework wrapper for Aura.Router
  * Using aura.view, and aura.autoload
  *
  */
@@ -39,22 +33,14 @@ class Application extends Core
 {
 
 	/**
-	 * Create an application
-	 *
-	 * @uses Aura\Router\RouterFactory;
+	 * Create the application
+	 * with the help of the Core
 	 */
 	public function __construct()
 	{
 		// routes
-		// parent::__construct(APPPATH . 'configuration/routes.php');
-
-		define('LAZER_DATA_PATH', APPPATH .'database/'); //Path to folder with tables
-
 		parent::__construct();
-
-		// setting up debug stuff
-		$this->debug = new Debug();
-
+		// parent::__construct(APPPATH . 'configuration/routes.php');
 	}
 
 	/**
@@ -70,68 +56,7 @@ class Application extends Core
 	/**
 	 * Add callback for when routing dispatching is finsihed
 	 */
-	public function finish()
-	{
-		//if table does not exists create
-		try {
-		\Lazer\Classes\Helpers\Validate::table('pages')->exists();
-		} catch(\Lazer\Classes\LazerException $e) {
-			Lazer::create('pages', array(
-			    'id'    => 'integer',
-				'slug'  => 'string',
-			    'title' => 'string',
-				'body'  => 'string'
-		));
-		}
-
-//		$row = Lazer::table('pages');
-//		$row->slug = 'zsele';
-//		$row->title = 'zsele ___title___';
-//		$row->body = 'zsele ___body___';
-//		$row->save();
-
-
-
-//		$row = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
-//	    $row = Lazer::table('pages')->where('slug', '=', $this->slug)->findAll()->count();
-//	    print_r($row);
-//		echo 'kkkkkeqweqweqweqweqwe';
-
-		// Single record select
-//		$row = Lazer::table('pages')->find(1);
-//		print_r($row);
-
-/*
-		$row = Lazer::table('pages');
-
-		// Multiple select
-		$table = Lazer::table('pages')->findAll();
-		foreach($table as $row)
-		{
-			echo '<pre>';
-		    print_r($row);
-		    print_r($row->id . '<br/>');
-		    print_r($row->slug . '<br/>');
-			print_r($row->title . '<br/>');
-			print_r($row->body . '<br/>');
-			echo '</pre>';			
-		}
-
-		// Single record select
-		$row = Lazer::table('pages')->find(1);
-		print_r($row);
-*/
-
-		// echo $this->staticpage;
-//		$row = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
-
-//		if ( $this->is_pjax() )
-//		{
-//			echo $row->title;
-//			print_r($row);
-//		}
-
-	}
+	public function finish(){}
 
 	/**
 	 * Render aura.view partials based on slug
@@ -152,10 +77,8 @@ class Application extends Core
 			// this is an ajax request so set partial view based on slug
 			$this->view->setView( $this->slug );
 		} else {
-			// regular http request for a page
-			// set partial view based on slug
+			// regular http request // partial view based on slug
 			$this->view->setView( $this->slug  );
-			// and set the view layout
 			$this->view->setLayout( 'layout' );
 		}
 
@@ -170,24 +93,24 @@ class Application extends Core
 	public function dynamic_view()
 	{
 		// get the data from the database
-		$table = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
+//		$table = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
 
 		$items = array();
 
 		$items['name'] = 'Auraphp-secret-spice -- data from application.php';
 
-		foreach($table as $row)
-		{
-			
-			$items['id']    = $row->id;
-			$items['slug']  = $row->slug;
-			$items['title'] = $row->title;
-			$items['body']  = $row->body;
-		}
+//		foreach($table as $row)
+//		{
+			$items['id']    = $this->slug . '__id';
+			$items['slug']  = $this->slug . '___ dynamic data here based on slug hey';
+			$items['title'] = $this->slug . '__title';
+			$items['body']  = $this->slug . '__ body';
+//		}
 
 		// setup views in Core.php
 		$this->register_views();
 
+		// assign the data to the view
 		$this->view->setData(array(
 		    'items' => $items
 		));
@@ -195,14 +118,10 @@ class Application extends Core
 		// check for ajax request
 		if ( $this->is_pjax() )
 		{
-			// We have ajax request here
-			// 01 set partial view based on slug
+			// ajax request // set only partial
 			$this->view->setView( 'content' );
-
 		} else {
-
-			// We have regular http request for a page
-			// 01 set partial view based on slug, and 02  set the view layout
+			// regular http request // set partial and layout
 			$this->view->setView( 'content'  );
 			$this->view->setLayout( 'layout' );
 		}
@@ -241,52 +160,41 @@ class Application extends Core
 			$this->error('404');
 			exit();
 		}
-
 		// 02 if request is pjax // currenty handled in render_view function
 		// if($this->is_pjax()){}
 		// 03 check for routes
 		// if ($this->route) {
 		else {
-
 			// there is a route, now get the params
 			$params = $this->route->params;
-
 			// does the route indicate an action?
 			if (isset($this->route->params['pjaxpages'])) {
-
 				// take the static page directly from the route and trim the trailing slash from the parameter
 				$this->slug = ltrim ( $this->route->params['pjaxpages'], '/' );
-
 			}
 			/*
 			 * default slug if none is set
 			 * root path, since we can not map / to a view
 			 */
-			if (empty($this->slug ) OR $this->slug === '' ) {
+			if (empty($this->slug ) OR $this->slug === '') {
 				$this->slug = 'index';
 			}
 			/*
 			 * static page is set, call render view, which includes the static view, 
 			 * othervise get the data from the db
 			 */
-			if ( isset($this->route->params['static_pages'] ) ) {
+			if (isset($this->route->params['static_pages'])) {
 				$this->render_view();
 			} else {
-				$this->dynamic_view();
+				$this->dynamic_view(); // render views with data from db
 			}
 		}
-
+		//
 		$this->finish();
 	}
 
 	//
-	public function __destruct()
-	{
-		echo '<hr>';
-		$const = new Constants();
-		$const = Constants::Monday ;
-		print_r($const);
-	}
+	public function __destruct(){}
 
 }
 

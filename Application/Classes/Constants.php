@@ -14,4 +14,10 @@ Class Constants
 
 
 
-
+// usage
+/*
+		echo '<hr>';
+		$const = new Constants();
+		$const = Constants::Monday ;
+		print_r($const);
+*/
