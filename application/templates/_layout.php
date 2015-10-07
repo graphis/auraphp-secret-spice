@@ -37,6 +37,7 @@ Zsolt Sándor – Graphic Designer
 
 
 <div id="pjax-container">
+	<?php echo $this->getContent(); ?>
 	
 </div>
 

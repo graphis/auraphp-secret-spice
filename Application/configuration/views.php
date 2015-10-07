@@ -7,7 +7,7 @@ return [
 
 		'path' => 'templates',						// in application / templates /
 
-		'layout' => 'layout.php',					// main layout file
+		'layout' => '_layout.php',					// main layout file
 		'error'  => 'error.php',					// main layout file
 
 		'partials' => [								// partial views
