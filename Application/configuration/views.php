@@ -5,7 +5,7 @@
 return [
 	'views' => [
 
-		'path' => 'views',							// in application / views /
+		'path' => 'templates',						// in application / templates /
 
 		'layout' => 'layout.php',					// main layout file
 		'error'  => 'error.php',					// main layout file
