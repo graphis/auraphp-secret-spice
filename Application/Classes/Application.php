@@ -60,13 +60,19 @@ class Application extends Core
 
 	/**
 	 * Render aura.view partials based on slug
-	 * @param Closure $callback Closure Callback to be executed
-	 * @return void
 	 */
-	public function render_view()
+	public function render_static()
 	{
 		// setup views in Core.php
 		$this->register_views();
+
+//		if (isset($this->route->params['static_pages'])) {
+//			// $this->render_static();
+//			echo '________ gg ________';
+//		} else {
+//			// $this->render_dynamic(); // render views with data from db
+//			echo '________ BBBBB ________';
+//		}
 
 		// set data // demo // call model here instead
 		$this->view->setData(array('name' => 'Auraphp-secret-spice -- data from application.php'));
@@ -87,10 +93,8 @@ class Application extends Core
 
 	/**
 	 * Assing data to views
-	 * @param Closure $callback Closure Callback to be executed
-	 * @return void
 	 */
-	public function dynamic_view()
+	public function render_dynamic()
 	{
 		// get the data from the database
 //		$table = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
@@ -130,6 +134,9 @@ class Application extends Core
 		echo $this->view->__invoke();
 	}
 
+
+
+
 	/**
 	 * Run the application:
 	 * Check routes an execute the dispatch process
@@ -160,7 +167,7 @@ class Application extends Core
 			$this->error('404');
 			exit();
 		}
-		// 02 if request is pjax // currenty handled in render_view function
+		// 02 if request is pjax // currenty handled in render_static function
 		// if($this->is_pjax()){}
 		// 03 check for routes
 		// if ($this->route) {
@@ -184,9 +191,9 @@ class Application extends Core
 			 * othervise get the data from the db
 			 */
 			if (isset($this->route->params['static_pages'])) {
-				$this->render_view();
+				$this->render_static();
 			} else {
-				$this->dynamic_view(); // render views with data from db
+				$this->render_dynamic(); // render views with data from db
 			}
 		}
 		//
