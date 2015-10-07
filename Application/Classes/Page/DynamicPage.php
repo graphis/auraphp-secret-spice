@@ -15,12 +15,7 @@
 namespace Application\Page;
 
 /**
- *
- * @package Auraphp-secret-spice
- * @license http://opensource.org/licenses/MIT MIT
- *
- * Core utils
- *
+ * DB page
  */
 class DynamicPage extends \Application\Application
 {

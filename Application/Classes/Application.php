@@ -22,7 +22,7 @@ use Application\Helper\Arr;
 use Application\Constants;
 
 // page controllers
-use Application\Controller\Error;
+use Application\Page\Error;
 use Application\Page\StaticPage;
 use Application\Page\DynamicPage;
 
@@ -88,7 +88,7 @@ class Application extends Core
 
 	/**
 	 * Run the application:
-	 * Check routes an execute the dispatch process
+	 * Application route logic
 	 *
 	 * @return void
 	 */
@@ -101,24 +101,11 @@ class Application extends Core
 		// get the route based on the url and server
 		$this->route = $this->router->match($this->path, $_SERVER);
 
-		/*
-		 * 01 if no route exists then 404 error
-		 * 02 if request is ajax // not used currently as 03 else does not get executed
-		 * use only if processing ajax requests requires other logic as normal requests
-		 * 03 else process params and get the slug based on the route segment
-		 * 01 if there is no route, make an error 404 for this case
-		 */
+		// 404 error
 		if (!$this->route) {
-			// $this->setup_views();
-			echo 'no route !';
-			// $this->debug->page($this->path);
-
-			//
-			$z = new Error;
-
-//			$this->error('404');
-			exit();
+			$error = new Error('404', $this->path);
 		}
+
 		// 02 if request is pjax // currenty handled in render_static function
 		// if($this->is_pjax()){}
 		// 03 check for routes

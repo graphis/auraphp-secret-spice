@@ -12,15 +12,10 @@
  *
  */
 
-namespace Application\Controller;
+namespace Application\Page;
 
 /**
- *
- * @package Auraphp-secret-spice
- * @license http://opensource.org/licenses/MIT MIT
- *
- * Core utils
- *
+ * error page
  */
 class Error extends \Application\Core
 {
@@ -30,10 +25,14 @@ class Error extends \Application\Core
 	 * @param
 	 * @return void
 	 */
-	public function __construct()
+	public function __construct($code, $path)
 	{
 		// get the routes
-		echo 'error _____ ';
+		// echo 'error _____ ';
+		http_response_code($code);
+		$messages = array('Aw, crap!', 'Bloody Hell!', 'Uh Oh!', 'Huh?');
+		$title = $messages[array_rand($messages)];
+		echo $title . ' Sorry, the page <strong>' . $path . '</strong> was not found -- '. $code;
 	}
 
 }

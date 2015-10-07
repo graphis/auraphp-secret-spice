@@ -5,13 +5,10 @@ namespace Application;
 
 
 /**
- *
  * Exception class
- *
  */
 class Exception
 {
-
 
 	function __construct($message) {
 		
@@ -19,7 +16,5 @@ class Exception
 		echo '<hr/>runtime exception ___ ' . $this->message . '<hr/>';
 		
 	}
-
-
 
 }
