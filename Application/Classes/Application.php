@@ -21,9 +21,11 @@ use Application\Helper\Debug;
 use Application\Helper\Arr;
 use Application\Constants;
 
-//
+// page controllers
 use Application\Controller\Error;
-use Application\Controller\Staticpage;
+use Application\Page\StaticPage;
+use Application\Page\DynamicPage;
+
 
 
 
@@ -65,27 +67,8 @@ class Application extends Core
 	 */
 	public function render_static()
 	{
-		/*		
-		// setup views in Core.php
-		$this->register_views();
-
-		// set data // demo // call model here instead
-		$this->view->setData(array('name' => 'Auraphp-secret-spice -- data from application.php'));
-
-		// check for ajax request
-		if ( $this->is_pjax() )
-		{
-			// this is an ajax request so set partial view based on slug
-			$this->view->setView( $this->slug );
-		} else {
-			// regular http request // partial view based on slug
-			$this->view->setView( $this->slug  );
-			$this->view->setLayout( 'layout' );
-		}
-
-		echo $this->view->__invoke();
-*/
-		$staticpage = new Staticpage($this->slug);
+		// hands of to static page controller
+		$staticpage = new StaticPage($this->slug);
 	}
 
 	/**
@@ -93,48 +76,14 @@ class Application extends Core
 	 */
 	public function render_dynamic()
 	{
-		// get the data from the database
-//		$table = Lazer::table('pages')->where('slug', '=', $this->slug)->find();
-
-		$items = array();
-
-		$items['name'] = 'Auraphp-secret-spice -- data from application.php';
-
-//		foreach($table as $row)
-//		{
-			$items['id']    = $this->slug . '__ id';
-			$items['slug']  = $this->slug . '__ dynamic data here based on slug hey';
-			$items['title'] = $this->slug . '__ title';
-			$items['body']  = $this->slug . '__ body';
-//		}
-
-		// setup views in Core.php
-		$this->register_views();
-
-		// assign the data to the view
-		$this->view->setData(array(
-		    'items' => $items
-		));
-
-		// check for ajax request
-		if ( $this->is_pjax() )
-		{
-			// ajax request // set only partial
-			$this->view->setView('content');
-		} else {
-			// regular http request // set partial and layout
-			$this->view->setView('content');
-			$this->view->setLayout('layout');
-		}
-
-		//
-		echo $this->view->__invoke();
+		// hands of to dynamic page controller
+		$staticpage = new DynamicPage($this->slug);
 	}
 
 
 	public function render_view()
 	{
-		echo $this->view->__invoke();
+//		echo $this->view->__invoke();
 	}
 
 	/**

@@ -12,7 +12,7 @@
  *
  */
 
-namespace Application\Controller;
+namespace Application\Page;
 
 /**
  *
@@ -22,7 +22,7 @@ namespace Application\Controller;
  * Core utils
  *
  */
-class Staticpage extends \Application\Application
+class StaticPage extends \Application\Application
 {
 
 	/**
