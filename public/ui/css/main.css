@@ -1,0 +1,165 @@
+/**
+ *
+ * main.css
+ * @requires reset.css
+ *
+ */
+
+/* utils */
+.brclear {
+	clear: both; height: 0; margin: 0; font-size: 1px; line-height: 0;
+}
+
+.text {
+	font: normal 33px/43px 'Atlas Grotesk Web', Verdana, sans-serif;
+	padding: 23px 40;
+
+}
+
+
+
+
+/*********** site defaults ***********/
+html, body {
+	font: normal 15px/24px 'Atlas Grotesk Web', Verdana, sans-serif;
+	background: url("../_debug/_grid.gif") fixed;
+	height: 100%;
+}
+
+/* html 5 elements for once */
+section, article, header, nav, footer {
+	display: block;
+}
+
+/* page skeleton */
+section {
+	width: 90%;
+	background: #e4f8bc;
+}
+
+article {
+	width: 90%;
+	background: #c185ef;
+	overflow: hidden;
+}
+
+header {
+	width: 90%;
+	background: #99c34e;
+}
+
+nav {
+	width: 90%;
+	background: #6bbab9;
+}
+
+footer {
+	background: #f47e58;
+}
+
+
+
+/* pjax demo stuff */
+#pjax-content {
+	background: #999999;
+	width: 100%;
+	height: 500px;
+}
+
+
+
+
+
+
+
+
+
+/*********** ovverrides ***********/
+
+
+/* list defaults */
+li {
+	overflow: hidden;
+}
+
+
+
+/* navigation */
+ul {
+	background: #1ed1c6;
+}
+
+li {
+	background: #79e0e4;
+}
+
+
+
+
+
+/* project items */
+ul.project {
+	
+	height: 100px;
+	background: #666666;
+	/* display: inline; */
+}
+
+ul.project li {
+	width: 300px;
+	height: 100px;
+	
+	float: left;
+	/* display: block; */
+	overflow: hidden;
+
+	background: #999999;
+}
+
+
+ul.main {
+	
+	height: 200px;
+	/* display: inline; */
+}
+
+ul.main li {
+	width: 300px;
+	height: 200px;
+	
+	float: left;
+	display: block;
+	overflow: hidden;
+	background: #77074b;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+ul.project a {
+	display: inline-block;
+	background: #CCFF22;
+}
+
+
+
+ul.project li img {
+	width: 300px;
+	height: 200px;
+}
+*/
+
+
+
+
+
+
+
