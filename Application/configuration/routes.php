@@ -37,11 +37,12 @@ $this->router->add('pjax', '{pjaxpages}')
  		'pjaxpages' => '/|/zsele|/974|/zorro' //   work OR play OR dream
  	));
 
-
- // catch all route
-// $this->router->add('generic', '{/controller,action,id}')
-//     ->setValues(array(
-//         'controller' => 'index',
-//         'action' => 'browse',
-//         'id' => null,
-//     ));
+// catch all route
+/*
+$this->router->add('generic', '{/controller,action,id}')
+     ->setValues(array(
+         'controller' => 'index',
+         'action' => 'browse',
+         'id' => null,
+     ));
+*/

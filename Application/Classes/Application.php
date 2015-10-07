@@ -21,6 +21,10 @@ use Application\Helper\Debug;
 use Application\Helper\Arr;
 use Application\Constants;
 
+//
+use Application\Controller\Error;
+use Application\Controller\Staticpage;
+
 
 
 /**
@@ -38,9 +42,7 @@ class Application extends Core
 	 */
 	public function __construct()
 	{
-		// routes
 		parent::__construct();
-		// parent::__construct(APPPATH . 'configuration/routes.php');
 	}
 
 	/**
@@ -63,16 +65,9 @@ class Application extends Core
 	 */
 	public function render_static()
 	{
+		/*		
 		// setup views in Core.php
 		$this->register_views();
-
-//		if (isset($this->route->params['static_pages'])) {
-//			// $this->render_static();
-//			echo '________ gg ________';
-//		} else {
-//			// $this->render_dynamic(); // render views with data from db
-//			echo '________ BBBBB ________';
-//		}
 
 		// set data // demo // call model here instead
 		$this->view->setData(array('name' => 'Auraphp-secret-spice -- data from application.php'));
@@ -89,6 +84,8 @@ class Application extends Core
 		}
 
 		echo $this->view->__invoke();
+*/
+		$staticpage = new Staticpage($this->slug);
 	}
 
 	/**
@@ -105,9 +102,9 @@ class Application extends Core
 
 //		foreach($table as $row)
 //		{
-			$items['id']    = $this->slug . '__id';
-			$items['slug']  = $this->slug . '___ dynamic data here based on slug hey';
-			$items['title'] = $this->slug . '__title';
+			$items['id']    = $this->slug . '__ id';
+			$items['slug']  = $this->slug . '__ dynamic data here based on slug hey';
+			$items['title'] = $this->slug . '__ title';
 			$items['body']  = $this->slug . '__ body';
 //		}
 
@@ -123,11 +120,11 @@ class Application extends Core
 		if ( $this->is_pjax() )
 		{
 			// ajax request // set only partial
-			$this->view->setView( 'content' );
+			$this->view->setView('content');
 		} else {
 			// regular http request // set partial and layout
-			$this->view->setView( 'content'  );
-			$this->view->setLayout( 'layout' );
+			$this->view->setView('content');
+			$this->view->setLayout('layout');
 		}
 
 		//
@@ -135,7 +132,10 @@ class Application extends Core
 	}
 
 
-
+	public function render_view()
+	{
+		echo $this->view->__invoke();
+	}
 
 	/**
 	 * Run the application:
@@ -159,12 +159,15 @@ class Application extends Core
 		 * 03 else process params and get the slug based on the route segment
 		 * 01 if there is no route, make an error 404 for this case
 		 */
-		
 		if (!$this->route) {
 			// $this->setup_views();
 			echo 'no route !';
-			$this->debug->page($this->path);
-			$this->error('404');
+			// $this->debug->page($this->path);
+
+			//
+			$z = new Error;
+
+//			$this->error('404');
 			exit();
 		}
 		// 02 if request is pjax // currenty handled in render_static function
