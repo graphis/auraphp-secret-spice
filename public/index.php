@@ -86,10 +86,7 @@ unset($application, $system);
 // $loader = require SYSPATH.'vendor/autoload.php';
 require SYSPATH.'vendor/autoload.php';
 
-// load classes also from application/Classes
-// $loader->add('Application\\', APPPATH.'classes');
-
-// Start the Application
+// Booting
 require APPPATH.'bootstrap.php';
 
 /**

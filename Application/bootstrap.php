@@ -1,8 +1,9 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 /**
  *
- * Bootstrap file. Including this file into your application will protect you from evil
- * and bring good luck.  It will also enable access to the skeleton libraries.
+ * Bootstrap file. Including this file into your application
+ * will protect you from evil
+ * and bring good luck.
  *
  */
 
@@ -16,7 +17,7 @@ $loader = new \Aura\Autoload\Loader;
 $loader->register();
 $loader->addPrefix('Application', APPPATH . 'classes');
 
-// kick the application in
+// kick it in
 use Application\Application;
 
 $app = new Application();

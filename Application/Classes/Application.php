@@ -80,12 +80,6 @@ class Application extends Core
 		$staticpage = new DynamicPage($this->slug);
 	}
 
-
-	public function render_view()
-	{
-//		echo $this->view->__invoke();
-	}
-
 	/**
 	 * Run the application:
 	 * Application route logic
@@ -121,6 +115,8 @@ class Application extends Core
 			/*
 			 * default slug if none is set
 			 * root path, since we can not map / to a view
+			 * ! NOTE // this is set in the route definition itself
+			 * but I leave it here also
 			 */
 			if (empty($this->slug ) OR $this->slug === '') {
 				$this->slug = 'index';
