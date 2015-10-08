@@ -110,7 +110,6 @@ class Application extends Core
 
 			// page controllers practically
 
-
 			// case 01 ----- dynamic page
 			if (isset($this->route->params['pjaxpages'])) {
 				// take the static page directly from the route and trim the trailing slash from the parameter
@@ -127,9 +126,9 @@ class Application extends Core
 				$this->slug = ltrim ( $this->route->params['static_pages'], '/' );
 
 				// only for default slug
-//				if (empty($this->slug ) OR $this->slug === '') {
-//					$this->slug = 'indexp';
-//				}
+				if (empty($this->slug ) OR $this->slug === '') {
+					$this->slug = 'indexp';
+				}
 
 				//
 				$this->render_static();

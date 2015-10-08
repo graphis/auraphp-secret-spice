@@ -10,10 +10,6 @@ $this->router->addTokens(array(
     'id' => '\d+',
 ));
 
-$this->router->addValues(array(
-    'pages' => null,
-));
-
 // practically a default value if this is not set from the url
 //$this->router->addValues(array(
 //		'static_pages' => 'indexp',
@@ -23,7 +19,7 @@ $this->router->addValues(array(
 // some sample routes to play with
 $this->router->add('page', '{static_pages}')
 	->addTokens(array(
-		'static_pages' => '|/work|/idiorm', //   work OR play OR dream
+		'static_pages' => '|/work|/idiorm|/index', //   work OR play OR dream
 	));
 
 
@@ -32,3 +28,4 @@ $this->router->add('pjax', '{pjaxpages}')
  	->addTokens(array(
  		'pjaxpages' => '/|/zsele|/974|/zorro' //   work OR play OR dream
 	));
+	
