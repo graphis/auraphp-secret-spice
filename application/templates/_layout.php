@@ -21,9 +21,10 @@ Zsolt Sándor – Graphic Designer
 
 <nav>
 <ul>
-	<li><a href="/">home</a></li>
-	<li><a href="work">work</a></li>
-	<li><a href="contact">contact</a></li>
+	<li><a href='/'>index</a></li>
+	<li><a href='/work'>work</a></li>
+	<li><a href='974'>974</a></li>
+	<li><a href='zsele'>zsele</a></li>
 </ul>
 </nav>
 
@@ -37,8 +38,7 @@ Zsolt Sándor – Graphic Designer
 
 
 <div id="pjax-container">
-	<?php echo $this->getContent(); ?>
-	
+<?php echo $this->getContent(); ?>
 </div>
 
 
