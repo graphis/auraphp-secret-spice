@@ -2,5 +2,6 @@
 	"require": {
 		"aura/router": "^2.3",
 		"aura/autoload": "^2.0",
-		"aura/view": "^2.1"	}
+		"aura/view": "^2.1",
+		"j4mie/idiorm": "^1.5"	}
 }
