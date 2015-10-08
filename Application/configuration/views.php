@@ -12,12 +12,13 @@ return [
 
 		'partials' => [								// partial views
 													// static views
-			'index'  => 'partial/_index.php',
+			'indexp'  => 'partial/_indexp.php',
 			'974'    => 'partial/_974.php',
 			'zsele'  => 'partial/_zsele.php',
 			'work'   => 'partial/_work.php',
+			'idiorm' => 'partial/_idiorm.php',
 
-			'content' => 'partial/____content.php'	// dynamic view for data from db
+			'content' => 'partial/_______content.php'	// dynamic view for data from db
 
 			]
 

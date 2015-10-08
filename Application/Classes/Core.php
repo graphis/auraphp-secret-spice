@@ -101,6 +101,7 @@ class Core
 			foreach ($partials as $key => $value)
 		    {
 				$view_registry->set( $key,  APPPATH . $folder . DIRECTORY_SEPARATOR . $value );
+				// echo $key,  APPPATH . $folder . DIRECTORY_SEPARATOR . $value . '<br/>' ;
 			}
 		}
 	}

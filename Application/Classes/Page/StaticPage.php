@@ -40,6 +40,8 @@ class StaticPage extends \Application\Application
 		// set data // demo // call model here instead
 		$this->view->setData(array('name' => 'Auraphp-secret-spice -- data from application.php'));
 
+		// $this->view->setView($this->slug);
+
 		// check for ajax request
 		if ( $this->is_pjax() )
 		{

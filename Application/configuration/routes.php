@@ -15,15 +15,15 @@ $this->router->addValues(array(
 ));
 
 // practically a default value if this is not set from the url
-$this->router->addValues(array(
-		'pjaxpages' => 'index',
-	));
+//$this->router->addValues(array(
+//		'static_pages' => 'indexp',
+//	));
 
 
 // some sample routes to play with
 $this->router->add('page', '{static_pages}')
 	->addTokens(array(
-		'static_pages' => '/work', //   work OR play OR dream
+		'static_pages' => '|/work|/idiorm', //   work OR play OR dream
 	));
 
 

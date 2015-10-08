@@ -3,7 +3,7 @@
 <div>
 	
 <pre>
-WWW
+WWW88888
 WWW
 W
 
@@ -19,22 +19,7 @@ csak én tudom, hogy vagy, pedig sohasem láttalak
 lehet, hogy nem emlékszem, senkinek a nevére
 lehet, hogy nem létezik semmi abból, ami látszik
 
-a szavak űrhajók csillagok felé,
-amiket soha nem érhetnek el
 
-hogy minek kell dalt írni egy régi háládatlan évről,
-amikor fel sem fedeztek semmit
-azt jobbal kérdezheted
-főleg, hogy nem emlékszem semmi konkrét eseményre
-974-ben, és mégis jobb, hogy mégsem
-
-mégsem veszett el ez a dal
-a szavak űrhajók csillagok felé,
-amiket soha nem érhetnek el
-
-974 szépe győz azóta is minden évben
-
-974-ben volt a legjobb évem
 </pre>
 
 

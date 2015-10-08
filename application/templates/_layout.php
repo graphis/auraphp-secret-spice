@@ -25,6 +25,7 @@ Zsolt Sándor – Graphic Designer
 	<li><a href='/work'>work</a></li>
 	<li><a href='974'>974</a></li>
 	<li><a href='zsele'>zsele</a></li>
+	<li><a href='idiorm'>idiorm</a></li>
 </ul>
 </nav>
 

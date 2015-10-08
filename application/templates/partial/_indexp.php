@@ -3,6 +3,8 @@
 <div>
 	
 <pre>
+	STATIC INDEX PAGE
+	
 seeking world domination through graphic design
 
 

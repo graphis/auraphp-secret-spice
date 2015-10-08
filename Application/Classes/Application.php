@@ -9,7 +9,7 @@
  * @package Auraphp-secret-spice
  * @version	1.1
  * @license http://opensource.org/licenses/bsd-license.php BSD
- * @copyright 2015 Zsolt Sándor
+ * @copyright Protected by copyright and my army of lawyers!
  *
  */
 
@@ -44,6 +44,7 @@ class Application extends Core
 	 */
 	public function __construct()
 	{
+		$this->debug = new Debug();
 		parent::__construct();
 	}
 
@@ -68,6 +69,7 @@ class Application extends Core
 	public function render_static()
 	{
 		// hands of to static page controller
+		echo $this->slug;
 		$staticpage = new StaticPage($this->slug);
 	}
 
@@ -95,41 +97,48 @@ class Application extends Core
 		// get the route based on the url and server
 		$this->route = $this->router->match($this->path, $_SERVER);
 
-		// 404 error
+		/*
+		 * if no valid route was found, then throw an 404 error
+		 * if route was found continue // else
+		 */
 		if (!$this->route) {
 			$error = new Error('404', $this->path);
-		}
-
-		// 02 if request is pjax // currenty handled in render_static function
-		// if($this->is_pjax()){}
-		// 03 check for routes
-		// if ($this->route) {
-		else {
+		} else {
 			// there is a route, now get the params
 			$params = $this->route->params;
-			// does the route indicate an action?
+
+
+			// page controllers practically
+
+
+			// case 01 ----- dynamic page
 			if (isset($this->route->params['pjaxpages'])) {
 				// take the static page directly from the route and trim the trailing slash from the parameter
 				$this->slug = ltrim ( $this->route->params['pjaxpages'], '/' );
-			}
-			/*
-			 * default slug if none is set
-			 * root path, since we can not map / to a view
-			 * ! NOTE // this is set in the route definition itself
-			 * but I leave it here also
-			 */
-			if (empty($this->slug ) OR $this->slug === '') {
-				$this->slug = 'index';
-			}
-			/*
-			 * static page is set, call render view, which includes the static view, 
-			 * othervise get the data from the db
-			 */
-			if (isset($this->route->params['static_pages'])) {
-				$this->render_static();
-			} else {
+
+				//
 				$this->render_dynamic(); // render views with data from db
 			}
+
+			// case 02 ----- static page
+			if (isset($this->route->params['static_pages'])) {
+
+				// take the static page directly from the route and trim the trailing slash from the parameter
+				$this->slug = ltrim ( $this->route->params['static_pages'], '/' );
+
+				// only for default slug
+//				if (empty($this->slug ) OR $this->slug === '') {
+//					$this->slug = 'indexp';
+//				}
+
+				//
+				$this->render_static();
+			}
+
+
+
+
+
 		}
 		//
 		$this->finish();
