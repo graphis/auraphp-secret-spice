@@ -22,7 +22,7 @@
 
 <?php
 
-use Application\Helper\Arr;
+use Application\Toolbox\Arr;
 
 /*
 foreach ($this->items as $item) {

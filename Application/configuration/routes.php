@@ -16,6 +16,15 @@ $this->router->addTokens(array(
 //	));
 
 
+
+// root route
+// some sample routes to play with
+$this->router->add('root', '')
+	->addTokens(array(
+		'static_pages' => '|/work|/idiorm|/index', //   work OR play OR dream
+	));
+
+
 // some sample routes to play with
 $this->router->add('page', '{static_pages}')
 	->addTokens(array(

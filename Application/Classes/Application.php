@@ -17,8 +17,8 @@ namespace Application;
 
 
 
-use Application\Helper\Debug;
-use Application\Helper\Arr;
+use Application\Toolbox\Debug;
+use Application\Toolbox\Arr;
 use Application\Constants;
 
 // page controllers
@@ -37,6 +37,13 @@ use Application\Page\DynamicPage;
  */
 class Application extends Core
 {
+
+	/**
+	 * Version.
+	 *
+	 * @var string
+	 */
+	const VERSION = '1.1';
 
 	/**
 	 * Create the application
@@ -108,6 +115,28 @@ class Application extends Core
 			$params = $this->route->params;
 
 
+			// $this->route->setRedirect( '/index' );
+			//////////////////////////////////
+			$this->router->add('wild_post', '/post/{id}')
+			    ->setWildcard('other');
+
+			$link = $this->router->generate('page', array(
+		    'static_pages' => 'index',
+			    'other' => array(
+			        'foo',
+			        'bar',
+			        'baz',
+			    )
+			)); // "/post/88/foo/bar/baz"
+			
+			// $this->router->redirect($link);
+			print_r($link);
+
+			//////////////////////////////////	
+
+
+
+
 			// page controllers practically
 
 			// case 01 ----- dynamic page
@@ -115,7 +144,6 @@ class Application extends Core
 				// take the static page directly from the route and trim the trailing slash from the parameter
 				$this->slug = ltrim ( $this->route->params['pjaxpages'], '/' );
 
-				//
 				$this->render_dynamic(); // render views with data from db
 			}
 
@@ -130,7 +158,6 @@ class Application extends Core
 					$this->slug = 'indexp';
 				}
 
-				//
 				$this->render_static();
 			}
 

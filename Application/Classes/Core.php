@@ -16,7 +16,7 @@ namespace Application;
 
 use Aura\Router\RouterFactory;
 use Aura\View\View;
-use Application\Helper\Arr;
+use Application\Toolbox\Arr;
 use Application\Exception;
 
 
@@ -54,7 +54,7 @@ class Core
 	public function getRoutes()
 	{
 		// initiate router
-		$this->router_factory = new RouterFactory;
+		$this->router_factory = new RouterFactory();
 		$this->router = $this->router_factory->newInstance();
 
 		if (file_exists(APPPATH . self::ROUTERMAP)) {
@@ -64,6 +64,14 @@ class Core
 			throw new Exception('No routes defined');
 			$this->router->add(null, '/');
 		}
+		
+		
+		//
+		// create a factory with a base path
+//		$router_factory = new RouterFactory('/path/to/subdir');
+		
+		
+
 	}
 
 	/**
